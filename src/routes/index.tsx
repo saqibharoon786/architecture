@@ -1,33 +1,43 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   BadgeCheck,
   Building2,
   Check,
-  ChevronDown,
   Droplets,
   Flame,
   Gauge,
   Linkedin,
+  FileText,
   Mail,
   Menu,
   Network,
+  Pause,
+  Play,
   Quote,
   Snowflake,
   Sparkles,
   Star,
   Users,
+  Volume2,
+  VolumeX,
   X,
   Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import heroCity from "@/assets/hero-city.jpg";
 import aboutEngineers from "@/assets/about-engineers.jpg";
-import officeProject from "@/assets/project-office.jpg";
-import hospitalProject from "@/assets/project-hospital.jpg";
+import mechanicalPlan from "@/assets/project-mechanical-plan.png";
+import schematicDiagram from "@/assets/project-schematic.png";
+import salonIso from "@/assets/project-salon-iso.png";
+import ceoPortrait from "@/assets/ceo-portrait.png";
+import hapSpaceInput from "@/assets/hap-space-input.png";
+import hapAhuA from "@/assets/hap-ahu-a.png";
+import hapAhuB from "@/assets/hap-ahu-b.png";
 import teamEngineers from "@/assets/team-engineers.jpg";
 import { Navbar, Logo } from "@/components/site/navigation";
 import { DesignSections } from "@/components/site/design-sections";
@@ -64,6 +74,27 @@ const TEAM = [
   { name: "Ethan Lee", role: "BIM Lead" },
 ];
 
+const SALON_PAGES = [
+  { page: 1, title: "Cover and symbols", detail: "Code legend for architectural, mechanical, electrical, and plumbing work." },
+  { page: 2, title: "Proposed floor plan", detail: "Styling area, toilet, break room, and corridor." },
+  { page: 3, title: "Life safety plan", detail: "Existing doors, firewall, and travel distances." },
+  { page: 4, title: "Ceiling and finish notes", detail: "2-by-2 acoustic ceiling notes and related finish direction." },
+  { page: 5, title: "Partition details", detail: "Stud, gypsum, and ceiling-height details." },
+  { page: 6, title: "Architectural sheet", detail: "Architectural drawing from the salon buildout set." },
+  { page: 7, title: "Architectural sheet", detail: "Architectural drawing from the salon buildout set." },
+  { page: 8, title: "Slab and floor details", detail: "Existing slab, trench, and new concrete notes." },
+  { page: 9, title: "Presentation model", detail: "Three-dimensional view of the tenant space." },
+  { page: 10, title: "Electrical specifications", detail: "Division 16 notes for the electrical scope." },
+  { page: 11, title: "Power floor plan", detail: "Panel PNL-1 circuits and device layout." },
+  { page: 12, title: "Mechanical specifications", detail: "Ductwork and equipment notes tied to the Florida Building Code." },
+  { page: 13, title: "Mechanical notes", detail: "General mechanical notes for the hair salon buildout." },
+  { page: 14, title: "Proposed mechanical plan", detail: "Supply, return, and exhaust layout, including EF-1 and EF-2." },
+  { page: 15, title: "Plumbing cover", detail: "Tenant buildout sheet for the hair salon plumbing set." },
+  { page: 16, title: "Fire protection notes", detail: "Protection required at fire-rated openings." },
+  { page: 17, title: "Proposed plumbing plan", detail: "Sanitary piping and fixture vent notes." },
+  { page: 18, title: "Plumbing riser", detail: "Sanitary and vent tie-in to the existing piping." },
+] as const;
+
 const TESTIMONIALS = [
   {
     quote:
@@ -89,6 +120,86 @@ function scrollToSection(id: string) {
   document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 }
 
+function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!media.matches) return;
+    videoRef.current?.pause();
+    setPaused(true);
+  }, []);
+
+  function togglePlay() {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      void video.play();
+      setPaused(false);
+      return;
+    }
+    video.pause();
+    setPaused(true);
+  }
+
+  function toggleMute() {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setMuted(video.muted);
+  }
+
+  return (
+    <section id="home" className="relative overflow-hidden border-b border-border bg-secondary/45">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 pt-32 pb-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:pt-36 lg:pb-20">
+        <div>
+          <p className="flex items-center gap-2 text-sm font-semibold uppercase text-primary">
+            <span className="h-px w-8 bg-primary" /> Hassan Building Design Group USA
+          </p>
+          <h1 className="mt-4 text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl">
+            U.S. MEP, Structural & Architectural Permit Drawing Services
+          </h1>
+          <p className="mt-5 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
+            Professional design and drafting services for U.S. residential and commercial projects.
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground">Design and documentation only — no construction or installation services.</p>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <Button size="lg" onClick={() => scrollToSection("#contact")} className="h-13 rounded-full px-8">Request a Quote <ArrowRight /></Button>
+            <Button asChild size="lg" variant="outline" className="h-13 rounded-full px-8"><Link to="/services">View Our Services <ArrowRight /></Link></Button>
+          </div>
+        </div>
+        <div className="relative">
+          <div className="overflow-hidden rounded-md bg-foreground shadow-2xl shadow-foreground/15">
+            <video
+              ref={videoRef}
+              className="aspect-video w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster={heroCity}
+              preload="metadata"
+              aria-label="Hassan Building Design Group USA introduction"
+            >
+              <source src="/mep-hero.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div className="absolute top-3 right-3 flex items-center gap-2">
+            <Button type="button" variant="secondary" size="icon" className="rounded-full bg-card/95 shadow-lg" onClick={togglePlay} aria-label={paused ? "Play introduction video" : "Pause introduction video"}>
+              {paused ? <Play /> : <Pause />}
+            </Button>
+            <Button type="button" variant="secondary" size="icon" className="rounded-full bg-card/95 shadow-lg" onClick={toggleMute} aria-label={muted ? "Unmute introduction video" : "Mute introduction video"}>
+              {muted ? <VolumeX /> : <Volume2 />}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function SectionHeading({ eyebrow, title, copy }: { eyebrow: string; title: string; copy?: string }) {
   return (
     <div className="max-w-2xl">
@@ -100,6 +211,142 @@ function SectionHeading({ eyebrow, title, copy }: { eyebrow: string; title: stri
       </h2>
       {copy && <p className="mt-5 text-base leading-7 text-muted-foreground">{copy}</p>}
     </div>
+  );
+}
+
+function AdSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const userPaused = useRef(false);
+  const [muted, setMuted] = useState(true);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      video.pause();
+      userPaused.current = true;
+      setPaused(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (userPaused.current) return;
+        if (entry?.isIntersecting) {
+          void video.play();
+          setPaused(false);
+          return;
+        }
+        video.pause();
+        setPaused(true);
+      },
+      { threshold: 0.45 },
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  function togglePlay() {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      userPaused.current = false;
+      void video.play();
+      setPaused(false);
+      return;
+    }
+    userPaused.current = true;
+    video.pause();
+    setPaused(true);
+  }
+
+  function toggleMute() {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setMuted(video.muted);
+  }
+
+  return (
+    <section className="border-t border-border bg-secondary/45 py-16 sm:py-24">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+        <div>
+          <SectionHeading
+            eyebrow="Watch"
+            title="A short look at coordinated MEP work."
+            copy="See how mechanical, electrical, and plumbing documentation comes together before a set goes out for review."
+          />
+          <Button size="lg" onClick={() => scrollToSection("#contact")} className="mt-8 h-13 rounded-full px-8">
+            Request a Quote <ArrowRight />
+          </Button>
+        </div>
+        <div className="relative mx-auto w-full max-w-[22rem]">
+          <div className="overflow-hidden rounded-md bg-foreground shadow-2xl shadow-foreground/15">
+            <video
+              ref={videoRef}
+              className="aspect-[9/16] w-full object-cover"
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="MEP coordination advertisement"
+            >
+              <source src="/mep-ad.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div className="absolute top-3 right-3 flex items-center gap-2">
+            <Button type="button" variant="secondary" size="icon" className="rounded-full bg-card/95 shadow-lg" onClick={togglePlay} aria-label={paused ? "Play MEP video" : "Pause MEP video"}>
+              {paused ? <Play /> : <Pause />}
+            </Button>
+            <Button type="button" variant="secondary" size="icon" className="rounded-full bg-card/95 shadow-lg" onClick={toggleMute} aria-label={muted ? "Unmute MEP video" : "Mute MEP video"}>
+              {muted ? <VolumeX /> : <Volume2 />}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ProjectDrawing({
+  image,
+  title,
+  place,
+  detail,
+  alt,
+  wide = false,
+}: {
+  image: string;
+  title: string;
+  place: string;
+  detail: string;
+  alt: string;
+  wide?: boolean;
+}) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <article className={`flex flex-col overflow-hidden rounded-md border border-border bg-card shadow-sm ${wide ? "lg:col-span-2" : ""}`}>
+      <button type="button" onClick={() => setOpen(true)} className="bg-white p-3 text-left sm:p-4" aria-label={`View ${title} at full size`}>
+        <img src={image} alt={alt} className="mx-auto max-h-[520px] w-full object-contain" />
+      </button>
+      <div className="flex flex-1 flex-col border-t border-border p-6">
+        <p className="text-xs font-semibold uppercase text-primary">{place}</p>
+        <h3 className="mt-2 text-2xl font-bold text-foreground">{title}</h3>
+        <p className="mt-3 flex-1 text-sm leading-6 text-muted-foreground">{detail}</p>
+        <Button type="button" variant="link" className="mt-4 justify-start px-0" onClick={() => setOpen(true)}>
+          View full size <ArrowRight />
+        </Button>
+      </div>
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="max-h-[94vh] w-[min(96vw,1280px)] max-w-none overflow-auto bg-white p-4 sm:p-6">
+          <DialogTitle className="pr-8 text-left text-base font-semibold">{title}</DialogTitle>
+          <img src={image} alt={alt} className="w-full object-contain" />
+        </DialogContent>
+      </Dialog>
+    </article>
   );
 }
 
@@ -172,25 +419,7 @@ function Index() {
     <main className="overflow-hidden bg-background">
       <Navbar onHome />
 
-      <section id="home" className="relative flex min-h-[min(850px,92svh)] items-center justify-center">
-        <img src={heroCity} alt="City skyline at sunset with construction cranes" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-foreground/45 via-foreground/30 to-foreground/60" />
-        <div className="relative z-10 mx-auto max-w-5xl px-4 pt-36 pb-24 text-center sm:px-6">
-          <p className="mb-5 text-sm font-semibold uppercase text-primary-foreground/90">Hassan Building Design Group USA</p>
-          <h1 className="text-3xl font-bold leading-tight text-primary-foreground drop-shadow-lg sm:text-4xl lg:text-5xl">U.S. MEP, Structural & Architectural Permit Drawing Services</h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-primary-foreground/90 sm:text-lg">
-            Professional design and drafting services for U.S. residential and commercial projects.
-          </p>
-          <p className="mt-4 text-sm text-primary-foreground/85">Design and documentation only — no construction or installation services.</p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button size="lg" onClick={() => scrollToSection("#contact")} className="h-13 rounded-full px-8 shadow-xl shadow-primary/30">Request a Quote <ArrowRight /></Button>
-            <Button asChild size="lg" variant="secondary" className="h-13 rounded-full px-8 shadow-xl"><Link to="/services">View Our Services <ArrowRight /></Link></Button>
-          </div>
-        </div>
-        <Button variant="ghost" size="icon" aria-label="Scroll to about us" onClick={() => scrollToSection("#about")} className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2 text-primary-foreground/80 transition-colors hover:text-primary-foreground">
-          <ChevronDown className="size-8 animate-bounce" />
-        </Button>
-      </section>
+      <HeroSection />
 
       <section id="about" className="scroll-mt-6 py-20 sm:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
@@ -249,24 +478,121 @@ function Index() {
 
       <section id="projects" className="scroll-mt-6 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionHeading eyebrow="Recent Projects" title="Designed with purpose. Delivered with precision." />
+          <SectionHeading eyebrow="Recent Projects" title="Drawings you can actually read." copy="Sheets from recent mechanical work, shown full and uncropped. Open any drawing to see the linework at a larger size." />
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            <ProjectDrawing
+              image={mechanicalPlan}
+              title="Mechanical floor plan"
+              place="Lockheed Martin · Fort Worth, TX"
+              detail="Ductwork, piping, and equipment layout for the North B015 mechanical plan, prepared with the mechanical contractor’s title block."
+              alt="Mechanical floor plan for Lockheed Martin in Fort Worth, Texas, showing ductwork, equipment, and a notes column"
+            />
+            <ProjectDrawing
+              image={schematicDiagram}
+              title="Geothermal system schematic"
+              place="HVAC · Schematic diagram"
+              detail="Heat pump, hot-water tank, chilled-water heat exchangers, and fan-coil connections, with the valve and pump legend on the sheet."
+              alt="Schematic diagram of a geothermal heat pump system with a hot water tank, fan coils, and heat exchangers"
+            />
+            <ProjectDrawing
+              image={salonIso}
+              title="Hair salon mechanical plan"
+              place="10650 Metro Parkway #104 · Fort Myers"
+              detail="Kitchen, lobby, and service-hall ductwork with the space schedule, kitchen air balance, and equipment schedule on the same sheet."
+              alt="Mechanical plan and isometric for a hair salon, showing kitchen, lobby, and service hall ductwork"
+              wide
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="salon-set" className="scroll-mt-6 border-t border-border bg-secondary/45 py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <SectionHeading eyebrow="Full drawing set" title="Hair salon, Metro Parkway — all 18 sheets." copy="Tenant buildout at 10650 Metro Parkway #104, Fort Myers. Every page of the MEP set is below, in order, from the cover through the plumbing riser." />
+            <Button asChild variant="outline" className="w-fit">
+              <a href="/mep-salon-metro-parkway.pdf" target="_blank" rel="noreferrer">Open original PDF <FileText /></a>
+            </Button>
+          </div>
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            {SALON_PAGES.map((sheet) => (
+              <ProjectDrawing
+                key={sheet.page}
+                image={`/salon/page-${String(sheet.page).padStart(2, "0")}.jpg`}
+                title={`${String(sheet.page).padStart(2, "0")} · ${sheet.title}`}
+                place={`Sheet ${sheet.page} of 18`}
+                detail={sheet.detail}
+                alt={`${sheet.title}, sheet ${sheet.page} of 18, hair salon at Metro Parkway`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="hap-report" className="scroll-mt-6 border-t border-border py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <SectionHeading eyebrow="HAP Report" title="State Farm, Denver load calculations." copy="Carrier Hourly Analysis Program v4.90 report dated February 11, 2023, prepared by M. Jawad. Two split air handlers were sized for tenant spaces in Denver, Colorado, using ASHRAE 62.1-2007 ventilation inputs." />
+            <Button asChild variant="outline" className="w-fit">
+              <a href="/hap-report.pdf" target="_blank" rel="noreferrer">Open full report <FileText /></a>
+            </Button>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {[
-              { image: officeProject, title: "Horizon Corporate Center", type: "Commercial · Full MEP Design", place: "Business Campus" },
-              { image: hospitalProject, title: "Westview Medical Pavilion", type: "Healthcare · MEP & Fire Protection", place: "Medical District" },
-            ].map((project) => (
-              <article key={project.title} className="group relative min-h-[430px] overflow-hidden rounded-md">
-                <img src={project.image} alt={project.title} loading="lazy" width={1408} height={1008} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/5 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-6 text-primary-foreground sm:p-8">
-                  <p className="text-xs font-semibold uppercase text-primary-foreground/75">{project.type}</p>
-                  <div className="mt-2 flex items-end justify-between gap-4">
-                    <div><h3 className="text-2xl font-bold sm:text-3xl">{project.title}</h3><p className="mt-2 text-sm text-primary-foreground/75">{project.place}</p></div>
-                    <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-primary-foreground/40 transition-colors group-hover:bg-primary group-hover:border-primary"><ArrowRight className="size-5" /></span>
-                  </div>
-                </div>
+              { name: "AHU — Tenant Space A", area: "1,439 ft²", cooling: "3.1 tons", airflow: "1,910 CFM", heating: "36.1 MBH" },
+              { name: "AHU — Tenant Space B", area: "505 ft²", cooling: "1.2 tons", airflow: "710 CFM", heating: "14.3 MBH" },
+            ].map((system) => (
+              <article key={system.name} className="rounded-md border border-border bg-card p-6">
+                <h3 className="text-lg font-bold">{system.name}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Split AHU · single zone · Denver, Colorado</p>
+                <dl className="mt-5 grid grid-cols-2 gap-4 text-sm">
+                  {[["Floor area", system.area], ["Cooling coil", system.cooling], ["Supply air", system.airflow], ["Heating coil", system.heating]].map(([label, value]) => (
+                    <div key={label}>
+                      <dt className="text-muted-foreground">{label}</dt>
+                      <dd className="mt-1 text-base font-semibold text-foreground">{value}</dd>
+                    </div>
+                  ))}
+                </dl>
               </article>
             ))}
+          </div>
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+            <ProjectDrawing
+              image={hapSpaceInput}
+              title="Space input data"
+              place="State Farm · Denver"
+              detail="Room-by-room inputs for tenant spaces, including floor area, ceiling height, and outdoor-air requirements."
+              alt="HAP space input data page for the State Farm Denver project"
+            />
+            <ProjectDrawing
+              image={hapAhuA}
+              title="Tenant Space A sizing"
+              place="AHU summary"
+              detail="Cooling coil, heating coil, and supply-fan sizing for the 1,439 square foot tenant A system."
+              alt="HAP air system sizing summary for tenant space A at State Farm Denver"
+            />
+            <ProjectDrawing
+              image={hapAhuB}
+              title="Tenant Space B sizing"
+              place="AHU summary"
+              detail="Cooling coil, heating coil, and supply-fan sizing for the 505 square foot tenant B system."
+              alt="HAP air system sizing summary for tenant space B at State Farm Denver"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="ceo" className="scroll-mt-6 py-20 sm:py-28">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
+          <img src={ceoPortrait} alt="Chief Executive Officer of Hassan Building Design Group USA" width={768} height={1024} className="mx-auto aspect-[4/5] w-full max-w-md rounded-md object-cover object-top shadow-2xl shadow-foreground/15" />
+          <div>
+            <SectionHeading eyebrow="Chief Executive Officer" title="A clear set is the whole point of the work." />
+            <p className="mt-6 text-base leading-7 text-muted-foreground">
+              The CEO of Hassan Building Design Group USA keeps every package to one standard: coordinated architectural, structural, and MEP drawings that a reviewer can follow and a contractor can read. The practice stays in design and documentation for residential and commercial projects across the United States.
+            </p>
+            <p className="mt-4 text-base leading-7 text-muted-foreground">
+              Load calculations, floor plans, and schematics leave the office only after the disciplines agree. Construction and installation stay with the teams in the field.
+            </p>
           </div>
         </div>
       </section>
@@ -366,6 +692,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <AdSection />
 
       <footer className="bg-foreground text-primary-foreground">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
