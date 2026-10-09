@@ -10,6 +10,7 @@ import {
 import { useEffect, lazy, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { WhatsAppButton } from "../components/site/social-links";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -78,10 +79,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Hassan Building Design Group USA" },
-      { name: "description", content: "U.S. architectural, structural, MEP and permit drawing services." },
+      { name: "description", content: "Remote architectural, structural, MEP, BIM, and permit drawing documentation for U.S. projects. Design and documentation only." },
       { name: "author", content: "Hassan Building Design Group USA" },
       { property: "og:title", content: "Hassan Building Design Group USA" },
-      { property: "og:description", content: "U.S. architectural, structural, MEP and permit drawing services." },
+      { property: "og:description", content: "Remote design, drafting, BIM coordination, and permit documentation for U.S. residential and commercial projects." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -133,6 +134,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <WhatsAppButton />
     </QueryClientProvider>
   );
 }

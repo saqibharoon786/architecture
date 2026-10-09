@@ -55,7 +55,7 @@ function ServiceDetail() {
             <h1 className="mt-4 text-3xl font-bold leading-tight sm:text-5xl">{service.title}</h1>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">{service.copy}</p>
             <Button asChild className="mt-8">
-              <Link to="/" hash="contact">Request a Quote <ArrowRight /></Link>
+              <Link to="/" hash="contact">Request a Project Quote <ArrowRight /></Link>
             </Button>
           </div>
           <img src={image} alt="" width={1408} height={1056} className="aspect-[4/3] w-full rounded-md object-cover" />
@@ -86,7 +86,10 @@ function ServiceDetail() {
             ))}
           </ul>
           {"note" in service && service.note && (
-            <p className="mt-8 border-l-2 border-primary pl-5 text-sm leading-7 text-muted-foreground">{service.note}</p>
+            <div className="mt-8 border-l-2 border-primary pl-5">
+              {"noteTitle" in service && service.noteTitle && <h3 className="text-base font-semibold">{service.noteTitle}</h3>}
+              <p className="mt-2 text-sm leading-7 text-muted-foreground">{service.note}</p>
+            </div>
           )}
         </section>
 

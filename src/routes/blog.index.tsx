@@ -27,9 +27,9 @@ function BlogIndex() {
   return (
     <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
       <p className="text-sm font-semibold uppercase text-primary">Blog</p>
-      <h1 className="mt-4 max-w-3xl text-4xl font-bold sm:text-5xl">Field notes on drawings that get reviewed.</h1>
+      <h1 className="mt-4 max-w-3xl text-4xl font-bold sm:text-5xl">Notes on U.S. drawing requirements.</h1>
       <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground">
-        Short, practical writing for contractors, architects, and owners who submit architectural, structural, and MEP sets in the United States.
+        Practical writing for contractors, architects, engineers, and owners on permit documentation, MEP coordination, load calculations, ADUs, and when a professional seal is required.
       </p>
       <div className="mt-12 grid gap-8 lg:grid-cols-3">
         {BLOGS.map((post, index) => (

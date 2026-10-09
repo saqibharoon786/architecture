@@ -126,4 +126,324 @@ export const BLOGS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "residential-permit-drawings-city-requirements",
+    title: "Residential permit drawings: what does a city usually require?",
+    excerpt:
+      "Cities do not share one residential checklist. These are the sheets that show up most often, and the items that still depend on the jurisdiction.",
+    date: "June 9, 2026",
+    readTime: "6 min read",
+    category: "Permit Drawings",
+    sections: [
+      {
+        heading: "Ask for the local checklist first",
+        paragraphs: [
+          "A residential permit drawing set describes the work a homeowner or contractor wants reviewed. It does not approve the work. The city, county, or other Authority Having Jurisdiction decides what the submittal must contain and whether the package is accepted.",
+          "Start with the address and the scope. A kitchen remodel, a second-story addition, and a new single-family home land on different checklists. Send any published submittal list from that building department with the photos and existing plans.",
+        ],
+      },
+      {
+        heading: "Sheets that appear on most house projects",
+        paragraphs: [
+          "Reviewers usually expect a site plan, existing and proposed floor plans, elevations for the sides that change, and at least one building section. Door and window schedules, general notes, and construction details follow when the scope is more than a fixture swap. If a wall, roof, or foundation changes, structural sheets are added.",
+          "Mechanical, electrical, and plumbing sheets are included when those systems change. A bedroom addition often needs supply air, a return path, lighting, power, and a plumbing connection. An equipment replacement may need a much shorter set. The sheet list should match the application, not a catalog of every trade.",
+        ],
+      },
+      {
+        heading: "What still varies",
+        paragraphs: [
+          "Energy documentation, special inspections, flood or wind information, and professional seals are jurisdiction-specific. Some cities accept owner-prepared drawings for limited residential work. Others require an architect or Professional Engineer for the same scope. We prepare the documentation and coordinate sealing with the licensed professional designated for the project when that review is required.",
+          "A useful package is organized, consistent, and honest about the information it was based on. It is prepared for submission. Acceptance remains with the reviewer.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "mep-permit-drawings-commercial",
+    title: "MEP permit drawings for U.S. commercial projects",
+    excerpt:
+      "Commercial plan review looks for coordinated mechanical, electrical, and plumbing sheets that match the architectural background and the occupancy.",
+    date: "June 24, 2026",
+    readTime: "6 min read",
+    category: "MEP Coordination",
+    sections: [
+      {
+        heading: "Commercial review is a coordination review",
+        paragraphs: [
+          "A small office, a restaurant, and a clinic can share a lease form and still need different MEP drawings. Reviewers look for equipment, routing, ventilation intent, panel information, fixture counts, and notes that match the floor plan. Fire-protection coordination is added when the occupancy or the jurisdiction asks for it.",
+          "We prepare those sheets as design and documentation support. The package is organized for the project scope and the local submittal. It is not a promise that the city will approve it.",
+        ],
+      },
+      {
+        heading: "What a coordinated commercial set usually includes",
+        paragraphs: [
+          "Mechanical sheets cover equipment layouts, ductwork, supply and return, exhaust, schedules, and load or ventilation calculations when they are in scope. Electrical sheets cover lighting, power, panel schedules, load calculations, and single-line diagrams. Plumbing sheets cover domestic water, sanitary drainage, vents, fixtures, and isometrics or risers.",
+          "The architectural background is the common reference. If the ceiling, the shaft, or a rated wall moves, the trade sheets should move with it. That is the practical difference between three separate PDFs and one permit drawing package.",
+        ],
+      },
+      {
+        heading: "Send the occupancy with the drawings",
+        paragraphs: [
+          "Tell us the city and county, the building use, and whether this is a tenant improvement or a shell. Include the lease outline, existing plans, equipment cut sheets, and any previous review comments. A restaurant hood and a dental compressor do not get documented from the same assumptions.",
+          "Where a licensed professional must sign or seal the MEP documents, that step is coordinated with the U.S.-licensed professional designated for the project.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "hvac-load-calculations-manual-j-vs-hap",
+    title: "HVAC load calculations: Manual J vs HAP",
+    excerpt:
+      "Manual J and Carrier HAP answer related questions at different scales. The right report is the one the project and the reviewer are actually asking for.",
+    date: "July 8, 2026",
+    readTime: "6 min read",
+    category: "Mechanical",
+    sections: [
+      {
+        heading: "Both are load tools, not permits",
+        paragraphs: [
+          "A load calculation estimates heating and cooling demand so equipment and airflow can be selected with a basis. It does not approve the installation, and it does not replace the mechanical drawings. Reviewers use the report to see whether the equipment on the plans has a documented size.",
+          "Manual J, published through ACCA, is the residential method most contractors and energy programs expect for houses. Carrier HAP, the Hourly Analysis Program, is commonly used for commercial and larger multi-zone work where hourly loads, ventilation, and system sizing need a fuller report.",
+        ],
+      },
+      {
+        heading: "Where the methods diverge",
+        paragraphs: [
+          "Manual J is room-by-room and built around a dwelling: orientation, insulation, windows, infiltration, and the design temperatures for that house. It is a poor fit for a restaurant with a makeup-air unit and a long equipment schedule. HAP is built for nonresidential spaces, with system sizing summaries, ventilation inputs, and zone data that can follow ASHRAE ventilation procedures when the project requires them.",
+          "Using a house method on a commercial tenant, or a commercial hourly model on a simple bedroom addition, creates a report the reviewer did not ask for. We match the calculation to the building type and the jurisdiction’s submittal, then keep the equipment schedule tied to that result.",
+        ],
+      },
+      {
+        heading: "What the sample should show",
+        paragraphs: [
+          "A useful report shows the space inputs, the outdoor-air assumption, the cooling and heating loads, and the airflow used to size the equipment. Those numbers should be traceable to the mechanical plan. If the plan says 3 tons and the report says something else, the set is not coordinated.",
+          "Load calculations are part of design documentation. Equipment selection still has to suit the existing service, the structure, and any licensed-professional review the jurisdiction requires.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "what-is-a-panel-schedule",
+    title: "What is a panel schedule?",
+    excerpt:
+      "A panel schedule is the index of a panelboard. Reviewers use it to see how the lighting, receptacles, and equipment on the plans are actually fed.",
+    date: "July 22, 2026",
+    readTime: "5 min read",
+    category: "Electrical",
+    sections: [
+      {
+        heading: "The schedule is the panel, written down",
+        paragraphs: [
+          "A panel schedule lists the circuits in a panel: breaker size, poles, load description, and often the calculated load. It is the sheet a reviewer uses to connect a symbol on the power plan to a specific circuit. Without it, the lighting and receptacle layout is a picture with no source.",
+          "Residential upgrades and commercial tenant improvements both need this clarity. A new air handler, a kitchen equipment connection, or an EV charger circuit should appear on the schedule if it appears on the plan.",
+        ],
+      },
+      {
+        heading: "What reviewers compare",
+        paragraphs: [
+          "They compare the schedule with the load calculation, the single-line diagram, and the devices drawn on the floor plan. A circuit that feeds equipment the mechanical sheet never shows, or a panel name that does not match the plan, is a coordination comment. Those are avoidable if the electrical set is drafted against the other disciplines.",
+          "Service and distribution notes explain how that panel relates to the building service. They are not a substitute for a utility approval or a licensed electrical engineer’s seal when the jurisdiction requires one.",
+        ],
+      },
+      {
+        heading: "What to send before the schedule is drafted",
+        paragraphs: [
+          "Photograph the existing panel with the directory readable, and send the service size if you know it. List new equipment with nameplate data. If the utility or a previous review already limited the service, include that letter. We would rather schedule the circuits you have than invent spare capacity.",
+          "The finished schedule is documentation for the agreed scope. It is prepared so the plan and the panel tell the same story.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "architectural-vs-structural-permit-drawings",
+    title: "Architectural vs structural permit drawings",
+    excerpt:
+      "Architectural sheets describe the building you occupy. Structural sheets describe how it stands up. Permit review fails when those two stories disagree.",
+    date: "August 5, 2026",
+    readTime: "6 min read",
+    category: "Permit Drawings",
+    sections: [
+      {
+        heading: "Two disciplines, one building",
+        paragraphs: [
+          "Architectural permit drawings show rooms, doors, windows, elevations, sections, and the existing versus proposed scope. Structural drawings show foundations, framing, beams, columns, and the details that connect them. A reviewer reads the architectural set to understand the work, then reads the structural set to see whether the changed walls and roofs are documented.",
+          "An opening that appears on the floor plan and nowhere on the framing plan is the usual comment. So is a roof drawn one way in elevation and another way on the roof framing sheet. Coordination is the remedy, not a thicker set of notes.",
+        ],
+      },
+      {
+        heading: "Who prepares which sheets",
+        paragraphs: [
+          "We can draft both. The architectural package covers plans, site information, elevations, schedules, life safety plans, and details. The structural package covers foundation and framing plans, sections, connection details, and schedules. They should use the same grids and the same dimensions.",
+          "Many jurisdictions require a licensed architect, a Professional Engineer, or both before those sheets can be submitted for permit. We do not substitute for that license. Where a seal is required, the documents are coordinated with the U.S.-licensed professional designated for the project.",
+        ],
+      },
+      {
+        heading: "How to scope the set",
+        paragraphs: [
+          "If the work does not change structure, say so. A finish upgrade does not need a foundation plan. If the work removes a wall, adds a story, or cuts a new opening, the structural sheets belong in the scope from the start. Guessing that a wall is non-bearing is how sets come back.",
+          "Send existing plans, photos of the structure you can see, and the city’s checklist. We will identify which discipline the submittal is likely to need. The authority still decides.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "adu-permit-drawing-checklist",
+    title: "ADU permit drawing checklist",
+    excerpt:
+      "Accessory dwelling units are a residential permit in a tight space. The drawings have to show the new unit and the lot it sits on.",
+    date: "August 19, 2026",
+    readTime: "6 min read",
+    category: "Residential",
+    sections: [
+      {
+        heading: "An ADU is a small dwelling, not a room label",
+        paragraphs: [
+          "Cities review ADUs as dwelling units: living space, a kitchen, a bath, a way out, and a relationship to the existing house and the lot. A garage conversion, a detached backyard unit, and an interior apartment do not share one sheet list, but they share the need for existing and proposed plans.",
+          "Start with the address, the ADU type, and any local ADU handout. State rules and city ordinances both move. We draft to the jurisdiction on the application, not to a national ADU template.",
+        ],
+      },
+      {
+        heading: "Drawings that usually belong in the set",
+        paragraphs: [
+          "Expect a site plan, floor plans, elevations, a section, door and window information, and notes that separate existing work from new work. Structural sheets follow when the conversion cuts the slab, opens a wall, or adds a roof. Mechanical, electrical, and plumbing sheets follow the new kitchen, bath, and heating and cooling.",
+          "Life safety information matters even on a small unit. Exiting, fire separation from the main house, and ceiling heights are reviewer topics. They should be on the drawings, not left for a phone call after submittal.",
+        ],
+      },
+      {
+        heading: "Information to gather before drafting",
+        paragraphs: [
+          "Measure the garage or yard, photograph all sides, and send the survey or site plan if you have one. Note setbacks, easements, and septic or sewer if you already know them. Photograph the electrical service and the existing mechanical equipment. An ADU often fails on utilities and lot coverage before it fails on the floor plan.",
+          "Professional sealing, if required for the architectural or structural sheets, is coordinated with the licensed professional for that project. The checklist gets the set ready to submit. The city decides whether the ADU is approved.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "commercial-tenant-improvement-drawing-sets",
+    title: "Commercial tenant improvement drawing sets",
+    excerpt:
+      "A tenant improvement is an existing building with a new occupancy pressed into it. The drawings have to show both.",
+    date: "September 2, 2026",
+    readTime: "6 min read",
+    category: "Commercial",
+    sections: [
+      {
+        heading: "The shell is part of the scope",
+        paragraphs: [
+          "Office, retail, restaurant, medical, and salon build-outs are judged against the base building. Reviewers want the demising walls, the exits, the restrooms, and the equipment the tenant is adding. A set that draws only the new furniture layout does not describe the permit.",
+          "We document tenant improvements as coordinated drawing packages: architectural plans, and the MEP sheets the occupancy requires. Fire-protection coordination is included when the project scope calls for it.",
+        ],
+      },
+      {
+        heading: "A practical sheet list",
+        paragraphs: [
+          "Architectural sheets often include existing and proposed plans, a life safety or exiting plan, reflected ceilings, and interior elevations or partition details. Mechanical sheets cover HVAC zones, ventilation, and exhaust. Electrical sheets cover lighting, power, and panel changes. Plumbing sheets cover fixtures and any new wet walls.",
+          "Restaurants and clinics add equipment connections that a standard office never needs. Say the use in the first email. A salon and a dental office should not inherit each other’s notes.",
+        ],
+      },
+      {
+        heading: "What the landlord already has",
+        paragraphs: [
+          "Ask for the base-building plans, the lease outline, and any landlord criteria before drafting starts. Previous tenant drawings help, even when they are old. If a prior review rejected a set, send the comments. Redrawing from a marked-up letter is faster than guessing.",
+          "Samples on a portfolio page are not a claim that every tenant name is a direct client. Your set will be prepared for your address, your scope, and your jurisdiction. Approval stays with the Authority Having Jurisdiction.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "what-is-bim-coordination",
+    title: "What is BIM coordination?",
+    excerpt:
+      "BIM coordination keeps architectural, structural, and MEP information in one model so the drawings agree before they are issued.",
+    date: "September 16, 2026",
+    readTime: "5 min read",
+    category: "BIM",
+    sections: [
+      {
+        heading: "A model is a working record",
+        paragraphs: [
+          "Building information modeling, usually in Revit for this kind of work, stores walls, levels, equipment, and mains so plans, sections, and schedules can come from the same source. Coordination is the review of that model across disciplines. The point is fewer conflicts on the sheets, not a rendered picture of the building.",
+          "AutoCAD remains the right deliverable when the jurisdiction or the project team expects precise 2D permit drawings. The software follows the submittal. The habit that matters is looking at one building.",
+        ],
+      },
+      {
+        heading: "What coordination actually checks",
+        paragraphs: [
+          "Clash detection looks for objects that occupy the same space: a duct through a beam, a light in a trunk duct, a plumbing riser in a rated wall that was never opened on the architectural plan. We focus on conflicts that would change the permit drawings or the construction documents.",
+          "Existing-building and as-built modeling are part of the same service when the project starts from a building that is already standing. A tenant improvement modeled on an invented shell will coordinate the wrong building.",
+        ],
+      },
+      {
+        heading: "What you receive",
+        paragraphs: [
+          "Depending on scope, the deliverable is a Revit model, drawing sheets produced from that model, or coordinated CAD sheets. Families, schedules, and views are included when they are part of the agreement. A model is not a license, and it is not a construction contract.",
+          "If the project needs an architect or engineer of record, the model is prepared for that professional’s review. We coordinate the documentation. We do not present the model as a sealed instrument.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "how-mep-coordination-reduces-conflicts",
+    title: "How MEP coordination reduces construction conflicts",
+    excerpt:
+      "Most expensive field conflicts were visible on the drawings. Coordination is the pass that finds them while the lines can still move.",
+    date: "September 28, 2026",
+    readTime: "5 min read",
+    category: "MEP Coordination",
+    sections: [
+      {
+        heading: "Conflicts are a documentation problem first",
+        paragraphs: [
+          "A duct, a beam, and a light cannot occupy the same inch of ceiling. If each trade is drafted alone, that conflict waits for the field. Coordination overlays mechanical, electrical, plumbing, and fire-protection information on the architectural and structural backgrounds while revisions are still inexpensive.",
+          "This is drawing support. It does not replace the contractor’s means and methods, and it does not guarantee a comment-free review. It removes the comments that say the sheets disagree.",
+        ],
+      },
+      {
+        heading: "Where to look",
+        paragraphs: [
+          "Ceilings, shafts, equipment yards, and rated walls produce most of the clashes. A reflected ceiling plan, a mechanical plan, and a structural framing plan should be read together. Equipment that needs a curb, a pad, or a working clearance should appear on more than one discipline.",
+          "Tags have to match schedules. If the plan says AHU-1 and the schedule says something else, the coordination is unfinished even when the lines do not touch.",
+        ],
+      },
+      {
+        heading: "When to ask for one package",
+        paragraphs: [
+          "A single equipment replacement can be a single-trade drawing. A restaurant, clinic, or office tenant improvement usually should not be. Those projects share a ceiling. Asking for mechanical, electrical, and plumbing together is how the overlay happens before submission.",
+          "Send the architectural background, even a rough one, before the trades are drawn. Coordination without a background is three sets of lines with nowhere to land.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "when-a-drawing-needs-a-pe-seal",
+    title: "When does a drawing need a Professional Engineer’s seal?",
+    excerpt:
+      "Sealing rules are set by the state and the project, not by the drafter. Here is how to tell when a U.S.-licensed professional has to review the set.",
+    date: "October 7, 2026",
+    readTime: "7 min read",
+    category: "Professional Review",
+    sections: [
+      {
+        heading: "The seal follows the law, not the title block",
+        paragraphs: [
+          "Many states require engineering documents that fall under their practice acts to be prepared or reviewed by a licensed Professional Engineer and to carry that engineer’s seal. Architectural documents submitted for permitting can have a parallel requirement for a licensed architect. Texas and California are often cited because their statutes and board rules are explicit, but they are not the only states with sealing rules.",
+          "Hassan Building Design Group USA provides design, drafting, calculation, and documentation support. We do not represent an unlicensed person or company as a licensed U.S. architect or Professional Engineer. When a seal is required, the drawing package is coordinated with the licensed professional designated for the project.",
+        ],
+      },
+      {
+        heading: "Questions that decide the issue",
+        paragraphs: [
+          "Ask three things. What is the state, city, and county? What is the occupancy and the scope? Which sheets are structural, mechanical, electrical, plumbing, or architectural? A residential equipment replacement and a commercial structural alteration do not share a sealing answer. The Authority Having Jurisdiction and the state licensing board are the sources that control.",
+          "Some limited projects are exempt. Exemptions are narrow, and they change. Do not assume a previous city accepted unsealed sheets for a different address. Send the checklist or the reviewer comment that mentions a seal, and we will plan the documentation around that requirement.",
+        ],
+      },
+      {
+        heading: "How coordination with a licensee works",
+        paragraphs: [
+          "The usual path is straightforward. We prepare the drawings and calculations in the agreed scope. The owner’s or client’s U.S.-licensed architect or Professional Engineer reviews the package, requests revisions, and signs or seals the documents they are willing to take responsibility for. We do not apply someone else’s seal, and we do not imply that a draft set is already approved.",
+          "Permit approval is a separate decision, made by the Authority Having Jurisdiction. A complete, coordinated set makes that review easier to follow. It is not a guarantee.",
+        ],
+      },
+    ],
+  },
 ];

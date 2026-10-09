@@ -16,7 +16,7 @@ import { SERVICES } from "@/lib/services";
 const SECTION_LINKS = [
   { label: "Home", hash: "home" },
   { label: "About Us", hash: "about" },
-  { label: "Projects", hash: "projects" },
+  { label: "Work", hash: "projects" },
   { label: "Team", hash: "team" },
   { label: "Contact", hash: "contact" },
 ] as const;
@@ -76,7 +76,7 @@ function LocationMenu() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" sideOffset={12} className="w-[min(40rem,calc(100vw-2rem))] p-3">
-        <DropdownMenuLabel className="text-xs uppercase tracking-wide text-muted-foreground">Key U.S. states</DropdownMenuLabel>
+        <DropdownMenuLabel className="text-xs uppercase tracking-wide text-muted-foreground">U.S. project coverage</DropdownMenuLabel>
         <DropdownMenuItem asChild>
           <Link to="/locations" className="font-semibold text-primary">
             View all locations <ArrowRight className="ml-auto" />
@@ -129,7 +129,7 @@ export function Navbar({ onHome = false }: { onHome?: boolean }) {
           ))}
         </nav>
         <Button asChild size="sm" className="hidden rounded-full xl:inline-flex">
-          <Link to="/" hash="contact">Request a Quote <ArrowRight /></Link>
+          <Link to="/" hash="contact">Request a Project Quote <ArrowRight /></Link>
         </Button>
         <Button variant="secondary" size="icon" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen(!open)} className="xl:hidden">
           {open ? <X /> : <Menu />}
@@ -182,7 +182,7 @@ export function Navbar({ onHome = false }: { onHome?: boolean }) {
               </Button>
             ))}
             <Button asChild className="mt-2" onClick={close}>
-              <Link to="/" hash="contact">Request a Quote <ArrowRight /></Link>
+              <Link to="/" hash="contact">Request a Project Quote <ArrowRight /></Link>
             </Button>
           </div>
         </nav>

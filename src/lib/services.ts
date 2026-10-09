@@ -2,38 +2,83 @@ import { Building2, Snowflake, Zap, Droplets, Layers3, Flame, Network } from "lu
 
 export const COMPANY = "Hassan Building Design Group USA";
 export const SERVICES = [
-  { slug: "architectural", icon: Building2, title: "Architectural Permit Drawings", copy: "We prepare clear and detailed architectural drawing sets for residential and commercial permit submissions.", items: ["Floor Plans", "Site Plans", "Roof Plans", "Elevations", "Building Sections", "Door & Window Schedules", "Reflected Ceiling Plans", "Existing & Proposed Plans", "As-Built Drawings", "Residential & Commercial Permit Sets"] },
-  { slug: "mechanical-hvac", icon: Snowflake, title: "Mechanical / HVAC Design", copy: "Professional HVAC design and drafting for residential and commercial buildings.", items: ["HVAC Layouts", "Ductwork Design", "Equipment Layouts", "HVAC Schedules", "Load Calculations", "Ventilation & Exhaust Plans", "Equipment Sizing", "Residential HVAC Permit Drawings", "Commercial HVAC Drawings", "Mechanical Schedules and Details"] },
-  { slug: "electrical", icon: Zap, title: "Electrical Design & Permit Drawings", copy: "Detailed electrical plans prepared for permit documentation and project coordination.", items: ["Lighting Plans", "Power Plans", "Electrical Layouts", "Panel Schedules", "Load Calculations", "Single-Line Diagrams", "Electrical Equipment Layouts", "Receptacle Plans", "Electrical Details", "Residential & Commercial Electrical Permit Sets"] },
-  { slug: "plumbing", icon: Droplets, title: "Plumbing Design & Drawings", copy: "Complete plumbing drafting and design documentation for residential and commercial projects.", items: ["Plumbing Floor Plans", "Water Supply Layouts", "Sanitary Drainage", "Vent Piping", "Fixture Layouts", "Isometric Drawings", "Plumbing Schedules", "Equipment Connections", "Plumbing Permit Drawings"] },
-  { slug: "structural", icon: Layers3, title: "Structural Design & Permit Drawings", copy: "Detailed structural drawings to support residential and commercial construction permitting.", items: ["Foundation Plans", "Framing Plans", "Roof Framing Plans", "Structural Details", "Beam & Column Layouts", "Structural Sections", "Connection Details", "Structural Schedules", "Residential Structural Permit Sets", "Commercial Structural Drawings"], note: "Where required by the jurisdiction, structural documents requiring a licensed Professional Engineer’s review, signature, or seal can be coordinated with the appropriate U.S.-licensed professional." },
-  { slug: "mepf-permit-sets", icon: Flame, title: "Complete MEPF Permit Sets", copy: "One team for your building design documentation. We coordinate multiple disciplines into a consolidated permit drawing package.", items: ["Mechanical / HVAC", "Electrical", "Plumbing", "Fire Protection / Fire-related drawings where applicable", "Architectural & Structural Coordination", "Coordinated Schedules and Details"], note: "Our coordinated drawing sets help reduce conflicts between architectural, structural, and MEP systems before permit submission and construction." },
-  { slug: "bim-coordination", icon: Network, title: "BIM Modeling & Coordination", copy: "Coordinated building models bring architectural, structural and MEP documentation together for clearer project review.", items: ["Architectural BIM Modeling", "Structural BIM Modeling", "MEP BIM Modeling", "Multi-Discipline Coordination", "Clash Review", "Revit Model Documentation", "AutoCAD Drawing Coordination"] },
+  {
+    slug: "architectural",
+    icon: Building2,
+    title: "Architectural Design & Permit Drawings",
+    copy: "Architectural drafting and documentation for residential and commercial projects, including new construction, additions, renovations, tenant improvements, and remodeling projects.",
+    items: ["Floor Plans", "Site Plans", "Roof Plans", "Exterior Elevations", "Building Sections", "Door & Window Schedules", "Life Safety Plans", "Reflected Ceiling Plans", "Construction Details", "General Notes", "Existing & Proposed Plans"],
+  },
+  {
+    slug: "mechanical-hvac",
+    icon: Snowflake,
+    title: "Mechanical / HVAC Design",
+    copy: "HVAC design and drafting support for residential and commercial buildings, from individual equipment replacements to complete mechanical permit documentation.",
+    items: ["HVAC Floor Plans", "Equipment Layouts", "Ductwork Layouts", "Supply & Return Air Distribution", "Exhaust & Ventilation Systems", "Equipment Schedules", "HVAC Load Calculations", "Heating & Cooling Equipment Selection", "Mechanical Details", "Refrigerant Piping Layouts", "Ventilation Calculations", "Energy-related HVAC Documentation", "Existing & Proposed HVAC Plans"],
+  },
+  {
+    slug: "electrical",
+    icon: Zap,
+    title: "Electrical Design & Permit Drawings",
+    copy: "Electrical drafting and design documentation for residential and commercial projects.",
+    items: ["Lighting Plans", "Power Plans", "Electrical Layouts", "Panel Schedules", "Load Calculations", "Single-Line Diagrams", "Equipment Connections", "Receptacle & Device Layouts", "Electrical Notes & Details", "Service & Distribution Documentation", "Existing & Proposed Electrical Plans", "EV Charger Electrical Plans", "Electrical Equipment Schedules"],
+  },
+  {
+    slug: "plumbing",
+    icon: Droplets,
+    title: "Plumbing Design & Permit Drawings",
+    copy: "Plumbing design and drafting support for residential and commercial building projects.",
+    items: ["Domestic Water Plans", "Sanitary Drainage Plans", "Vent Plans", "Storm Drainage Plans", "Plumbing Isometrics", "Fixture Layouts", "Pipe Sizing", "Equipment Connections", "Water Heater Layouts", "Plumbing Details", "Riser Diagrams", "Plumbing Schedules"],
+  },
+  {
+    slug: "structural",
+    icon: Layers3,
+    title: "Structural Design & Permit Drawings",
+    copy: "Structural drafting and documentation support for residential and commercial building projects.",
+    items: ["Foundation Plans", "Framing Plans", "Roof Framing Plans", "Beam & Column Layouts", "Structural Details", "Structural Sections", "Connection Details", "General Structural Notes", "Structural Schedules", "Existing & Proposed Structural Plans"],
+    noteTitle: "Professional Review & Sealing",
+    note: "Where a project or jurisdiction requires documents to be prepared, reviewed, signed, or sealed by a U.S.-licensed Professional Engineer, we can coordinate the drawing package with the appropriate licensed professional designated for the project. We do not represent an unlicensed individual or entity as a licensed U.S. professional.",
+  },
+  {
+    slug: "mepf-permit-sets",
+    icon: Flame,
+    title: "Complete MEPF Design & Permit Drawing Packages",
+    copy: "Coordinated mechanical, electrical, plumbing, and fire-protection documentation for residential and commercial projects.",
+    items: ["HVAC Plans", "Mechanical Equipment Schedules", "Electrical Plans", "Lighting & Power Plans", "Panel Schedules", "Load Calculations", "Plumbing Plans", "Plumbing Isometrics", "Fire Protection Coordination", "General Notes", "Equipment Schedules", "Construction Details", "MEP Coordination", "Architectural / MEP Overlay Coordination"],
+    note: "All deliverables are developed according to the project scope and applicable jurisdiction requirements.",
+  },
+  {
+    slug: "bim-coordination",
+    icon: Network,
+    title: "BIM Modeling & Coordination",
+    copy: "We develop and coordinate Revit models for architectural, structural, and MEP documentation, and produce precise 2D CAD drawings when the project needs them.",
+    items: ["Architectural BIM Modeling", "Structural BIM Modeling", "MEP BIM Modeling", "Existing Building Modeling", "As-Built Modeling", "Revit Families", "Drawing Production", "Model-Based Documentation", "Clash Detection & Coordination", "MEP Coordination", "Architectural / Structural / MEP Coordination", "AutoCAD Drafting"],
+  },
 ];
 
-export const PERMIT_ITEMS = ["Architectural Plans", "Structural Plans", "HVAC Plans", "Electrical Plans", "Plumbing Plans", "Site Plans", "Equipment Schedules", "Panel Schedules", "Load Calculations", "Energy-related documentation", "Construction Details", "General Notes", "Code-related drawing information"];
-export const RESIDENTIAL = ["Single-Family Homes", "New Construction", "Home Additions", "Remodeling", "Basement Finishing", "Garage Conversions", "ADUs", "Interior Renovations", "HVAC Replacements", "Electrical Upgrades", "Plumbing Modifications"];
-export const COMMERCIAL = ["Retail Buildings", "Restaurants", "Offices", "Warehouses", "Small Commercial Buildings", "Tenant Improvements", "Renovations", "Equipment Replacements", "MEP Modifications", "Commercial Permit Packages"];
+export const PERMIT_ITEMS = ["Architectural Plans", "Site Plans", "Structural Plans", "HVAC Plans", "Electrical Plans", "Plumbing Plans", "Life Safety Plans", "Equipment Schedules", "Panel Schedules", "Load Calculations", "Construction Details", "General Notes", "Code-related Drawing Information", "Energy-related Documentation"];
+export const RESIDENTIAL = ["Single-Family Homes", "New Construction", "Home Additions", "Remodeling", "ADUs / Accessory Dwelling Units", "Basement Finishing", "Garage Conversions", "Interior Renovations", "HVAC Replacements", "Electrical Upgrades", "Plumbing Modifications", "Residential Tenant Improvements"];
+export const COMMERCIAL = ["Office Tenant Improvements", "Restaurant / Food Service", "Retail", "Medical / Dental", "Salon", "Offices", "Small Warehouses", "Small Commercial Buildings", "Tenant Improvements", "Renovations", "MEP Renovations", "Equipment Replacements"];
 export const PROCESS = [
   ["Project Information", "Send us your drawings, site information, scope, photos, dimensions, or existing plans."],
   ["Project Review", "We review the available information and identify the required drawing disciplines and deliverables."],
   ["Design & Drafting", "Our team develops the required architectural, structural, mechanical, electrical, and plumbing drawings."],
   ["Coordination", "We coordinate the disciplines to identify drawing conflicts and maintain consistency across the plan set."],
   ["Review & Revisions", "We incorporate your comments and required revisions according to the agreed scope."],
-  ["Final Drawing Set", "You receive organized, professional drawings prepared for your intended permit/submission workflow."],
+  ["Final Documentation", "Organized drawing package delivered according to the agreed scope and intended submission workflow."],
 ];
 export const REASONS = [
-  ["U.S.-Focused Design Services", "We work specifically with U.S. projects, drawing standards, and permit documentation requirements."],
-  ["Multi-Discipline Capability", "Architectural, Structural, Mechanical, Electrical, and Plumbing services under one team."],
-  ["Detailed Drawings", "We focus on clear, coordinated, and construction-ready documentation."],
-  ["Flexible Project Support", "From individual drawings to complete multi-discipline permit packages."],
-  ["Remote Design Support", "Work with us remotely from anywhere in the United States."],
-  ["Design & Drafting Only", "Our business focuses on design, drafting, documentation, and drawing production. We do not provide construction or installation services."],
+  ["U.S.-Focused Documentation", "We focus on drawing and documentation requirements for U.S. residential and commercial projects."],
+  ["Multi-Discipline Capability", "Architectural, structural, mechanical, electrical, plumbing, and BIM services under one coordinated workflow."],
+  ["Clear & Detailed Drawings", "Our goal is to produce organized drawings that are easy for clients, contractors, and reviewers to understand."],
+  ["Flexible Project Support", "From a single drawing or revision to a complete multi-discipline project package."],
+  ["Remote Collaboration", "Work with our team remotely from anywhere in the United States."],
+  ["Design & Drafting Focus", "Our business focuses on design, drafting, BIM coordination, calculations, and documentation. We do not provide construction or installation services."],
 ];
-export const CLIENTS = ["Homeowners", "Contractors", "General Contractors", "Architects", "Engineers", "Developers", "Real Estate Professionals", "MEP Contractors", "Construction Companies", "Design-Build Companies"];
+export const CLIENTS = ["Architects", "Engineers", "General Contractors", "MEP Contractors", "Construction Companies", "Developers", "Property Owners", "Homeowners", "Design-Build Companies", "Real Estate Professionals"];
 
 export const DISCLAIMER =
-  "Design and documentation only — no construction or installation services. Final permit requirements vary by city, county, state, project type, and Authority Having Jurisdiction (AHJ). Where a licensed architect or Professional Engineer seal is required, that review can be coordinated with the appropriate U.S.-licensed professional.";
+  "Hassan Building Design Group USA provides design, drafting, BIM, coordination, calculation, and documentation support. We do not provide construction or installation services. Permit requirements and professional licensing requirements vary by jurisdiction and project. Where a licensed architect or Professional Engineer is required, final documents must be reviewed, signed, and/or sealed by the appropriately licensed professional responsible for the project. Hassan Building Design Group USA does not guarantee permit approval, as approval decisions are made by the applicable Authority Having Jurisdiction (AHJ).";
 
 export const SERVICE_PAGES: Record<
   string,
@@ -99,7 +144,7 @@ export const SERVICE_PAGES: Record<
   structural: {
     overview: [
       "Structural permit drawings describe how the building stands up: foundations, framing, beams, columns, and the details that connect them. We prepare those sheets for residential and commercial projects so the architectural plans and the structural plans describe the same building.",
-      "Openings, roof framing, and new beams in a remodel are easy places for drawings to drift apart. We keep grids, dimensions, and member marks consistent across the set. When a jurisdiction requires a licensed Professional Engineer’s review or seal, that step is coordinated with the appropriate U.S.-licensed professional.",
+      "Openings, roof framing, and new beams in a remodel are easy places for drawings to drift apart. We keep grids, dimensions, and member marks consistent across the set. Where a project or jurisdiction requires a U.S.-licensed Professional Engineer’s review, signature, or seal, we coordinate the package with the licensed professional designated for the project. We do not represent an unlicensed individual or entity as a licensed U.S. professional.",
     ],
     highlights: [
       { title: "Foundations and framing", copy: "Foundation plans, floor framing, and roof framing are drawn as a sequence, not as isolated sketches." },
@@ -111,8 +156,8 @@ export const SERVICE_PAGES: Record<
   },
   "mepf-permit-sets": {
     overview: [
-      "A complete MEPF permit set is for projects that should not be split across unrelated drafters. Mechanical, electrical, plumbing, and fire-protection or fire-related sheets are produced together and checked against the architectural and structural backgrounds.",
-      "Coordination is the point of the package. Ceiling space, equipment yards, shafts, and rated walls get one pass across disciplines before the set is issued. You receive organized sheets, schedules, and details prepared for your permit workflow, with a single team to call when a revision touches more than one trade.",
+      "A complete MEPF design and permit drawing package is for projects that should not be split across unrelated drafters. Mechanical, electrical, plumbing, and fire-protection coordination sheets are produced together and checked against the architectural and structural backgrounds.",
+      "Coordination is the point of the package. Ceiling space, equipment yards, shafts, and rated walls get one pass across disciplines before the set is issued. You receive organized sheets, schedules, and details according to the agreed scope and the applicable jurisdiction requirements. Approval remains with the Authority Having Jurisdiction.",
     ],
     highlights: [
       { title: "One coordinated package", copy: "HVAC, electrical, plumbing, and applicable fire-related drawings share backgrounds, sheet order, and revision control." },

@@ -2,28 +2,15 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { type FormEvent, useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
-  BadgeCheck,
   Building2,
   Check,
-  Droplets,
-  Flame,
-  Gauge,
-  Linkedin,
   FileText,
   Mail,
-  Menu,
-  Network,
   Pause,
   Play,
-  Quote,
-  Snowflake,
   Sparkles,
-  Star,
-  Users,
   Volume2,
   VolumeX,
-  X,
-  Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
@@ -38,27 +25,28 @@ import ceoPortrait from "@/assets/ceo-portrait.png";
 import hapSpaceInput from "@/assets/hap-space-input.png";
 import hapAhuA from "@/assets/hap-ahu-a.png";
 import hapAhuB from "@/assets/hap-ahu-b.png";
-import teamEngineers from "@/assets/team-engineers.jpg";
+import designImage from "@/assets/design-documentation.jpg";
 import { Navbar, Logo } from "@/components/site/navigation";
 import { DesignSections } from "@/components/site/design-sections";
-import { BLOGS } from "@/lib/blogs";
+import { BLOGS, type BlogPost } from "@/lib/blogs";
 import { LOCATIONS } from "@/lib/locations";
-import { SERVICES, COMPANY } from "@/lib/services";
+import { CLIENTS, DISCLAIMER, SERVICES } from "@/lib/services";
+import { SocialLinks, WHATSAPP_DISPLAY, WHATSAPP_URL, WhatsAppIcon } from "@/components/site/social-links";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Hassan Building Design Group USA — U.S. Permit Drawing Services" },
+      { title: "Hassan Building Design Group USA — U.S. Design & Permit Drawing Services" },
       {
         name: "description",
         content:
-          "Architectural, Structural, MEP and permit drawing services for U.S. residential and commercial projects. Design and documentation only.",
+          "Remote architectural, structural, and MEP design, drafting, BIM coordination, and permit documentation for U.S. residential and commercial projects. Design and documentation only.",
       },
-      { property: "og:title", content: "Hassan Building Design Group USA — U.S. Permit Drawing Services" },
+      { property: "og:title", content: "Hassan Building Design Group USA — U.S. Design & Permit Drawing Services" },
       {
         property: "og:description",
         content:
-          "U.S. architectural, structural, mechanical, electrical, plumbing and BIM design documentation.",
+          "Remote design, drafting, BIM coordination, and permit documentation for U.S. residential and commercial projects.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -67,11 +55,44 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const TEAM = [
-  { name: "Sarah Mitchell", role: "Mechanical Engineer" },
-  { name: "Daniel Carter", role: "Project Director" },
-  { name: "Maya Robinson", role: "Electrical Engineer" },
-  { name: "Ethan Lee", role: "BIM Lead" },
+const FEATURED_POSTS = [
+  "when-a-drawing-needs-a-pe-seal",
+  "adu-permit-drawing-checklist",
+  "residential-permit-drawings-city-requirements",
+  "what-a-permit-drawing-set-includes",
+  "hvac-load-calculations-manual-j-vs-hap",
+  "mep-permit-drawings-commercial",
+]
+  .map((slug) => BLOGS.find((post) => post.slug === slug))
+  .filter((post): post is BlogPost => post !== undefined);
+
+const CLIENT_VALUES = [
+  ["Clear Communication", "Defined scope, organized deliverables, and responsive project coordination."],
+  ["Coordinated Documentation", "Multiple disciplines coordinated to reduce drawing conflicts."],
+  ["Flexible Support", "Support available for individual drawings, revisions, or complete packages."],
+];
+
+const NEXT_STEPS = [
+  "We review your project information.",
+  "We identify the required drawing disciplines.",
+  "We clarify the scope and deliverables.",
+  "We provide a project proposal and estimated turnaround.",
+  "Work begins after scope approval.",
+];
+
+const PROJECT_TYPES = [
+  "Single-family home",
+  "Home addition",
+  "ADU / accessory dwelling unit",
+  "Residential remodel",
+  "Commercial tenant improvement",
+  "Restaurant / food service",
+  "Retail",
+  "Medical / dental",
+  "Office",
+  "Warehouse",
+  "MEP renovation or equipment replacement",
+  "Other",
 ];
 
 const SALON_PAGES = [
@@ -80,41 +101,20 @@ const SALON_PAGES = [
   { page: 3, title: "Life safety plan", detail: "Existing doors, firewall, and travel distances." },
   { page: 4, title: "Ceiling and finish notes", detail: "2-by-2 acoustic ceiling notes and related finish direction." },
   { page: 5, title: "Partition details", detail: "Stud, gypsum, and ceiling-height details." },
-  { page: 6, title: "Architectural sheet", detail: "Architectural drawing from the salon buildout set." },
-  { page: 7, title: "Architectural sheet", detail: "Architectural drawing from the salon buildout set." },
+  { page: 6, title: "Architectural sheet", detail: "Architectural drawing from the tenant improvement sample." },
+  { page: 7, title: "Architectural sheet", detail: "Architectural drawing from the tenant improvement sample." },
   { page: 8, title: "Slab and floor details", detail: "Existing slab, trench, and new concrete notes." },
   { page: 9, title: "Presentation model", detail: "Three-dimensional view of the tenant space." },
   { page: 10, title: "Electrical specifications", detail: "Division 16 notes for the electrical scope." },
   { page: 11, title: "Power floor plan", detail: "Panel PNL-1 circuits and device layout." },
   { page: 12, title: "Mechanical specifications", detail: "Ductwork and equipment notes tied to the Florida Building Code." },
-  { page: 13, title: "Mechanical notes", detail: "General mechanical notes for the hair salon buildout." },
+  { page: 13, title: "Mechanical notes", detail: "General mechanical notes for the tenant improvement." },
   { page: 14, title: "Proposed mechanical plan", detail: "Supply, return, and exhaust layout, including EF-1 and EF-2." },
-  { page: 15, title: "Plumbing cover", detail: "Tenant buildout sheet for the hair salon plumbing set." },
+  { page: 15, title: "Plumbing cover", detail: "Plumbing cover sheet from the tenant improvement sample." },
   { page: 16, title: "Fire protection notes", detail: "Protection required at fire-rated openings." },
   { page: 17, title: "Proposed plumbing plan", detail: "Sanitary piping and fixture vent notes." },
   { page: 18, title: "Plumbing riser", detail: "Sanitary and vent tie-in to the existing piping." },
 ] as const;
-
-const TESTIMONIALS = [
-  {
-    quote:
-      "The design team brought clarity to a complex coordination process. Their drawings were thoughtful, accurate, and easy for our contractors to follow.",
-    name: "Michael Torres",
-    role: "Project Executive",
-  },
-  {
-    quote:
-      "Responsive, practical, and genuinely collaborative. They understood our goals and delivered a solution that balanced performance with budget.",
-    name: "Rachel Adams",
-    role: "Senior Architect",
-  },
-  {
-    quote:
-      "Their attention to detail helped us identify issues early and keep construction moving. We would gladly work with them again.",
-    name: "James Wilson",
-    role: "Development Manager",
-  },
-];
 
 function scrollToSection(id: string) {
   document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
@@ -159,14 +159,20 @@ function HeroSection() {
             <span className="h-px w-8 bg-primary" /> Hassan Building Design Group USA
           </p>
           <h1 className="mt-4 text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl">
-            U.S. MEP, Structural & Architectural Permit Drawing Services
+            U.S. Architectural, Structural & MEP Design & Permit Drawing Services
           </h1>
           <p className="mt-5 max-w-xl text-base leading-7 text-muted-foreground sm:text-lg">
-            Professional design and drafting services for U.S. residential and commercial projects.
+            Professional building design, drafting, BIM coordination, and permit documentation for residential and commercial projects across the United States.
           </p>
-          <p className="mt-4 text-sm text-muted-foreground">Design and documentation only — no construction or installation services.</p>
+          <p className="mt-4 max-w-xl text-sm leading-6 text-muted-foreground">
+            We support contractors, architects, engineers, developers, and property owners with coordinated drawing packages prepared for local permit and project requirements.
+          </p>
+          <p className="mt-4 max-w-xl text-sm font-medium leading-6 text-foreground">Design & documentation services only — no construction or installation.</p>
+          <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground">
+            Where required, professional review, signature, and seal are coordinated with the U.S.-licensed professional designated for the project.
+          </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Button size="lg" onClick={() => scrollToSection("#contact")} className="h-13 rounded-full px-8">Request a Quote <ArrowRight /></Button>
+            <Button size="lg" onClick={() => scrollToSection("#contact")} className="h-13 rounded-full px-8">Request a Project Quote <ArrowRight /></Button>
             <Button asChild size="lg" variant="outline" className="h-13 rounded-full px-8"><Link to="/services">View Our Services <ArrowRight /></Link></Button>
           </div>
         </div>
@@ -279,7 +285,7 @@ function AdSection() {
             copy="See how mechanical, electrical, and plumbing documentation comes together before a set goes out for review."
           />
           <Button size="lg" onClick={() => scrollToSection("#contact")} className="mt-8 h-13 rounded-full px-8">
-            Request a Quote <ArrowRight />
+            Request a Project Quote <ArrowRight />
           </Button>
         </div>
         <div className="relative mx-auto w-full max-w-[22rem]">
@@ -378,19 +384,39 @@ function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="grid gap-5 bg-card p-6 sm:grid-cols-2 sm:p-10">
       <label className="grid gap-2 text-sm font-medium text-foreground">
-        Full name
+        Name
         <Input required name="name" placeholder="Your name" className="h-12 bg-background px-4" />
       </label>
       <label className="grid gap-2 text-sm font-medium text-foreground">
-        Work email
+        Company
+        <Input name="company" placeholder="Company name, if any" className="h-12 bg-background px-4" />
+      </label>
+      <label className="grid gap-2 text-sm font-medium text-foreground">
+        Email
         <Input required type="email" name="email" placeholder="you@company.com" className="h-12 bg-background px-4" />
       </label>
       <label className="grid gap-2 text-sm font-medium text-foreground">
-        Phone number
-        <Input required type="tel" name="phone" placeholder="Your phone number" className="h-12 bg-background px-4" />
+        Phone / WhatsApp
+        <Input required type="tel" name="phone" placeholder="Phone or WhatsApp number" className="h-12 bg-background px-4" />
       </label>
       <label className="grid gap-2 text-sm font-medium text-foreground">
-        Service needed
+        Project location
+        <Input required name="location" placeholder="City, State" className="h-12 bg-background px-4" />
+      </label>
+      <label className="grid gap-2 text-sm font-medium text-foreground">
+        Project type
+        <select
+          required
+          name="projectType"
+          defaultValue=""
+          className="h-12 rounded-md border border-input bg-background px-4 text-sm text-foreground outline-none focus:ring-1 focus:ring-ring"
+        >
+          <option value="" disabled>Select a project type</option>
+          {PROJECT_TYPES.map((type) => <option key={type}>{type}</option>)}
+        </select>
+      </label>
+      <label className="grid gap-2 text-sm font-medium text-foreground sm:col-span-2">
+        Services required
         <select
           required
           name="service"
@@ -402,12 +428,23 @@ function ContactForm() {
         </select>
       </label>
       <label className="grid gap-2 text-sm font-medium text-foreground sm:col-span-2">
-        Tell us about your project
-        <Textarea required name="message" placeholder="Project type, location, timeline, and any specific requirements..." className="min-h-32 resize-none bg-background p-4" />
+        Upload drawings / files
+        <input
+          type="file"
+          name="files"
+          multiple
+          accept=".pdf,.dwg,.dxf,.rvt,.png,.jpg,.jpeg,.webp,.tif,.tiff"
+          className="block w-full rounded-md border border-input bg-background px-4 py-3 text-sm text-foreground file:mr-4 file:rounded-md file:border-0 file:bg-secondary file:px-3 file:py-2 file:text-sm file:font-medium"
+        />
+        <span className="text-xs font-normal text-muted-foreground">PDFs, DWGs, Revit models, sketches, or photos. This preview stays on your device.</span>
+      </label>
+      <label className="grid gap-2 text-sm font-medium text-foreground sm:col-span-2">
+        Project description
+        <Textarea required name="message" placeholder="Scope, existing drawings, timeline, and the city or county that will review the project..." className="min-h-32 resize-none bg-background p-4" />
       </label>
       <div className="sm:col-span-2">
         <Button type="submit" size="lg" className="h-12 w-full sm:w-auto">
-          Send Project Request <ArrowRight />
+          Request a Project Quote <ArrowRight />
         </Button>
       </div>
     </form>
@@ -424,24 +461,35 @@ function Index() {
       <section id="about" className="scroll-mt-6 py-20 sm:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div>
-            <SectionHeading eyebrow="About Us" title="One team for your building design documentation." />
+            <SectionHeading eyebrow="About Us" title="Building design documentation for U.S. projects." />
             <p className="mt-6 text-base leading-7 text-muted-foreground">
-              Hassan Building Design Group USA provides detailed Architectural, Mechanical, Electrical, Plumbing (MEP), Structural, and permit drawing sets for contractors, architects, engineers, developers, and property owners across the United States.
+              Hassan Building Design Group USA provides remote architectural, structural, mechanical, electrical, plumbing, BIM, and permit drawing support for residential and commercial projects throughout the United States.
             </p>
-            <div className="mt-8 grid grid-cols-3 gap-4 border-y border-border py-7">
-              {[["U.S.", "Project focus"], ["A–S–MEP", "Coordinated disciplines"], ["Design", "Documentation only"]].map(([value, label]) => (
-                <div key={label}><strong className="block text-xl font-bold text-primary sm:text-2xl">{value}</strong><span className="mt-1 block text-xs leading-5 text-muted-foreground sm:text-sm">{label}</span></div>
-              ))}
-            </div>
-            <ul className="mt-8 grid gap-3 text-sm font-medium sm:grid-cols-2">
-              {["Integrated design process", "Responsive project support", "U.S.-focused documentation", "Buildable documentation"].map((item) => (
-                <li key={item} className="flex items-center gap-3"><BadgeCheck className="size-5 text-primary" />{item}</li>
+            <p className="mt-4 text-base leading-7 text-muted-foreground">
+              Our team helps clients turn project information, sketches, existing drawings, field measurements, and design requirements into clear and coordinated construction documentation.
+            </p>
+            <h3 className="mt-8 text-lg font-semibold">Our focus</h3>
+            <ul className="mt-4 grid gap-4">
+              {[
+                ["U.S. Project Documentation", "Drawing and documentation services tailored to U.S. project requirements and local jurisdiction needs."],
+                ["Multi-Discipline Coordination", "Architectural, structural, mechanical, electrical, and plumbing documentation coordinated within one workflow."],
+                ["Design & Drafting Support", "From individual drawings and revisions to complete multi-discipline drawing packages."],
+                ["Remote Project Support", "Work with our team remotely from anywhere in the United States."],
+              ].map(([title, copy]) => (
+                <li key={title}>
+                  <p className="text-sm font-semibold">{title}</p>
+                  <p className="mt-1 text-sm leading-6 text-muted-foreground">{copy}</p>
+                </li>
               ))}
             </ul>
+            <p className="mt-6 border-l-2 border-primary pl-4 text-sm leading-6 text-muted-foreground">
+              <span className="font-semibold text-foreground">Important: </span>
+              Permit requirements, professional licensing, plan review, and approval requirements vary by jurisdiction and project. Where a licensed professional&apos;s review, signature, or seal is required, we coordinate with the appropriate U.S.-licensed professional designated for the project.
+            </p>
           </div>
           <div className="relative">
             <div className="absolute -bottom-5 -left-5 hidden h-40 w-40 border-l-4 border-b-4 border-primary sm:block" />
-            <img src={aboutEngineers} alt="MEP engineers reviewing technical plans in a mechanical plant room" loading="lazy" width={1408} height={1056} className="relative aspect-[4/3] w-full rounded-md object-cover shadow-2xl shadow-foreground/15" />
+            <img src={aboutEngineers} alt="Building systems documentation being reviewed against mechanical equipment" loading="lazy" width={1408} height={1056} className="relative aspect-[4/3] w-full rounded-md object-cover shadow-2xl shadow-foreground/15" />
             <div className="absolute right-4 bottom-4 flex max-w-52 items-center gap-3 rounded-md bg-card p-4 shadow-xl sm:right-6 sm:bottom-6">
               <Sparkles className="size-7 shrink-0 text-primary" /><p className="text-sm font-semibold leading-5">Clear, coordinated documentation.</p>
             </div>
@@ -452,7 +500,7 @@ function Index() {
       <section id="services" className="scroll-mt-6 bg-secondary/55 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <SectionHeading eyebrow="Our Services" title="Design & drafting under one team." copy="Architectural, Structural, Mechanical, Electrical, Plumbing and coordinated permit packages for U.S. projects." />
+            <SectionHeading eyebrow="Our Services" title="Design and drafting under one workflow." copy="Architectural, structural, mechanical, electrical, plumbing, BIM, and coordinated permit documentation for U.S. projects." />
             <Button variant="outline" className="w-fit" asChild><Link to="/services">View All Services <ArrowRight /></Link></Button>
           </div>
           <div className="mt-12 grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
@@ -478,28 +526,29 @@ function Index() {
 
       <section id="projects" className="scroll-mt-6 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionHeading eyebrow="Recent Projects" title="Drawings you can actually read." copy="Sheets from recent mechanical work, shown full and uncropped. Open any drawing to see the linework at a larger size." />
+          <SectionHeading eyebrow="Selected Work & Drawing Samples" title="Examples of coordinated documentation." copy="Explore examples of architectural, structural, mechanical, electrical, plumbing, BIM, and permit documentation. The samples below demonstrate drafting, design, coordination, and documentation capabilities across different building types and project requirements." />
+          <p className="mt-6 max-w-3xl border-l-2 border-primary pl-4 text-sm leading-6 text-muted-foreground">Drawing samples are provided for portfolio and demonstration purposes. Project scope, codes, jurisdiction requirements, and professional review requirements vary by project.</p>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
             <ProjectDrawing
               image={mechanicalPlan}
               title="Mechanical floor plan"
-              place="Lockheed Martin · Fort Worth, TX"
-              detail="Ductwork, piping, and equipment layout for the North B015 mechanical plan, prepared with the mechanical contractor’s title block."
-              alt="Mechanical floor plan for Lockheed Martin in Fort Worth, Texas, showing ductwork, equipment, and a notes column"
+              place="Commercial Facility · Fort Worth, Texas"
+              detail="Representative ductwork, piping, and equipment layout from a commercial mechanical floor plan."
+              alt="Mechanical floor plan sample for a commercial facility in Fort Worth, Texas"
             />
             <ProjectDrawing
               image={schematicDiagram}
-              title="Geothermal system schematic"
-              place="HVAC · Schematic diagram"
+              title="HVAC system schematic"
+              place="Representative schematic sample"
               detail="Heat pump, hot-water tank, chilled-water heat exchangers, and fan-coil connections, with the valve and pump legend on the sheet."
-              alt="Schematic diagram of a geothermal heat pump system with a hot water tank, fan coils, and heat exchangers"
+              alt="Schematic diagram sample of a heat pump system with a hot water tank, fan coils, and heat exchangers"
             />
             <ProjectDrawing
               image={salonIso}
-              title="Hair salon mechanical plan"
-              place="10650 Metro Parkway #104 · Fort Myers"
-              detail="Kitchen, lobby, and service-hall ductwork with the space schedule, kitchen air balance, and equipment schedule on the same sheet."
-              alt="Mechanical plan and isometric for a hair salon, showing kitchen, lobby, and service hall ductwork"
+              title="Commercial tenant mechanical plan"
+              place="Commercial Tenant Improvement · Fort Myers, Florida"
+              detail="Ductwork, space schedule, air balance, and equipment schedule from a commercial tenant improvement sample."
+              alt="Mechanical plan sample for a commercial tenant improvement in Fort Myers, Florida"
               wide
             />
           </div>
@@ -509,9 +558,9 @@ function Index() {
       <section id="salon-set" className="scroll-mt-6 border-t border-border bg-secondary/45 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <SectionHeading eyebrow="Full drawing set" title="Hair salon, Metro Parkway — all 18 sheets." copy="Tenant buildout at 10650 Metro Parkway #104, Fort Myers. Every page of the MEP set is below, in order, from the cover through the plumbing riser." />
+            <SectionHeading eyebrow="Representative Drawing Sample" title="Sample MEP drawing set — commercial tenant improvement." copy="A representative multi-sheet MEP sample for a commercial tenant improvement. Every page is below, in order, from the cover through the plumbing riser. Shown for portfolio and demonstration purposes." />
             <Button asChild variant="outline" className="w-fit">
-              <a href="/mep-salon-metro-parkway.pdf" target="_blank" rel="noreferrer">Open original PDF <FileText /></a>
+              <a href="/mep-salon-metro-parkway.pdf" target="_blank" rel="noreferrer">Open sample PDF <FileText /></a>
             </Button>
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -522,7 +571,7 @@ function Index() {
                 title={`${String(sheet.page).padStart(2, "0")} · ${sheet.title}`}
                 place={`Sheet ${sheet.page} of 18`}
                 detail={sheet.detail}
-                alt={`${sheet.title}, sheet ${sheet.page} of 18, hair salon at Metro Parkway`}
+                alt={`${sheet.title}, sheet ${sheet.page} of 18, commercial tenant improvement sample`}
               />
             ))}
           </div>
@@ -532,9 +581,9 @@ function Index() {
       <section id="hap-report" className="scroll-mt-6 border-t border-border py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <SectionHeading eyebrow="HAP Report" title="State Farm, Denver load calculations." copy="Carrier Hourly Analysis Program v4.90 report dated February 11, 2023, prepared by M. Jawad. Two split air handlers were sized for tenant spaces in Denver, Colorado, using ASHRAE 62.1-2007 ventilation inputs." />
+            <SectionHeading eyebrow="Representative HAP Calculation Report" title="Commercial HVAC load calculation sample — Denver, Colorado." copy="Sample HVAC load calculation demonstrating space inputs, system sizing, cooling and heating loads, and airflow requirements. Two split air handlers were sized for tenant spaces in Denver, Colorado." />
             <Button asChild variant="outline" className="w-fit">
-              <a href="/hap-report.pdf" target="_blank" rel="noreferrer">Open full report <FileText /></a>
+              <a href="/hap-report.pdf" target="_blank" rel="noreferrer">Open sample report <FileText /></a>
             </Button>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -560,23 +609,23 @@ function Index() {
             <ProjectDrawing
               image={hapSpaceInput}
               title="Space input data"
-              place="State Farm · Denver"
+              place="Denver, Colorado"
               detail="Room-by-room inputs for tenant spaces, including floor area, ceiling height, and outdoor-air requirements."
-              alt="HAP space input data page for the State Farm Denver project"
+              alt="Sample HAP space input data page for a commercial tenant space in Denver, Colorado"
             />
             <ProjectDrawing
               image={hapAhuA}
               title="Tenant Space A sizing"
               place="AHU summary"
               detail="Cooling coil, heating coil, and supply-fan sizing for the 1,439 square foot tenant A system."
-              alt="HAP air system sizing summary for tenant space A at State Farm Denver"
+              alt="Sample HAP air system sizing summary for tenant space A in Denver, Colorado"
             />
             <ProjectDrawing
               image={hapAhuB}
               title="Tenant Space B sizing"
               place="AHU summary"
               detail="Cooling coil, heating coil, and supply-fan sizing for the 505 square foot tenant B system."
-              alt="HAP air system sizing summary for tenant space B at State Farm Denver"
+              alt="Sample HAP air system sizing summary for tenant space B in Denver, Colorado"
             />
           </div>
         </div>
@@ -584,14 +633,14 @@ function Index() {
 
       <section id="ceo" className="scroll-mt-6 py-20 sm:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
-          <img src={ceoPortrait} alt="Chief Executive Officer of Hassan Building Design Group USA" width={768} height={1024} className="mx-auto aspect-[4/5] w-full max-w-md rounded-md object-cover object-top shadow-2xl shadow-foreground/15" />
+          <img src={ceoPortrait} alt="Hassan Ali Qureshi, Founder and Design Coordinator of Hassan Building Design Group USA" width={768} height={1024} className="mx-auto aspect-[4/5] w-full max-w-md rounded-md object-cover object-top shadow-2xl shadow-foreground/15" />
           <div>
-            <SectionHeading eyebrow="Chief Executive Officer" title="A clear set is the whole point of the work." />
+            <SectionHeading eyebrow="Founder & Design Coordinator" title="Hassan Ali Qureshi" />
             <p className="mt-6 text-base leading-7 text-muted-foreground">
-              The CEO of Hassan Building Design Group USA keeps every package to one standard: coordinated architectural, structural, and MEP drawings that a reviewer can follow and a contractor can read. The practice stays in design and documentation for residential and commercial projects across the United States.
+              Hassan Building Design Group USA focuses on providing architectural, structural, MEP, BIM, and permit documentation support for U.S. projects.
             </p>
             <p className="mt-4 text-base leading-7 text-muted-foreground">
-              Load calculations, floor plans, and schematics leave the office only after the disciplines agree. Construction and installation stay with the teams in the field.
+              The work is remote design, drafting, coordination, calculations, and documentation. Where a jurisdiction requires a licensed architect or Professional Engineer, that review, signature, and seal stay with the U.S.-licensed professional designated for the project. Construction and installation stay with the teams in the field.
             </p>
           </div>
         </div>
@@ -600,34 +649,33 @@ function Index() {
       <section id="team" className="scroll-mt-6 bg-foreground py-20 text-primary-foreground sm:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-20">
           <div className="overflow-hidden rounded-md">
-            <img src={teamEngineers} alt="A multidisciplinary engineering team in their design studio" loading="lazy" width={1408} height={1008} className="aspect-[4/3] w-full object-cover" />
+            <img src={designImage} alt="Coordinated architectural and MEP drawing documentation" loading="lazy" width={1408} height={1056} className="aspect-[4/3] w-full object-cover" />
           </div>
           <div>
-            <p className="flex items-center gap-2 text-sm font-semibold uppercase text-primary"><span className="h-px w-8 bg-primary" />Meet the team</p>
-            <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">Experienced minds. One shared standard.</h2>
-            <p className="mt-5 leading-7 text-primary-foreground/65">Our multidisciplinary team works side by side, combining technical depth with the communication needed to keep every project moving.</p>
-            <div className="mt-9 grid gap-px overflow-hidden rounded-md bg-primary-foreground/15 sm:grid-cols-2">
-              {TEAM.map((person) => (
-                <div key={person.name} className="flex items-center justify-between bg-foreground p-4">
-                  <div><p className="font-semibold">{person.name}</p><p className="mt-1 text-xs text-primary-foreground/55">{person.role}</p></div>
-                  <a href="#contact" aria-label={`Contact ${person.name}`} className="text-primary-foreground/50 transition-colors hover:text-primary"><Linkedin className="size-4" /></a>
-                </div>
+            <p className="flex items-center gap-2 text-sm font-semibold uppercase text-primary"><span className="h-px w-8 bg-primary" />Our Design Team</p>
+            <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">Support matched to the project scope.</h2>
+            <p className="mt-5 leading-7 text-primary-foreground/65">Our multidisciplinary project team supports architectural, structural, MEP, BIM, drafting, and coordination requirements according to project scope.</p>
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {["Architectural documentation", "Structural documentation", "Mechanical / HVAC", "Electrical", "Plumbing", "BIM coordination"].map((item) => (
+                <li key={item} className="flex items-center gap-3 border-t border-primary-foreground/15 pt-3 text-sm font-medium">
+                  <Check className="size-4 text-primary" />
+                  {item}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </section>
 
       <section className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="text-center"><SectionHeading eyebrow="Client Stories" title="Trusted where it matters most." /></div>
+          <SectionHeading eyebrow="What Our Clients Value" title="How project support is organized." copy="Real client comments can be added when we have permission to publish them. Until then, these are the working standards behind each package." />
           <div className="mt-12 grid gap-5 lg:grid-cols-3">
-            {TESTIMONIALS.map((item) => (
-              <figure key={item.name} className="flex min-h-80 flex-col rounded-md border border-border bg-card p-7 shadow-sm">
-                <div className="flex justify-between"><Quote className="size-9 text-primary/30" /><div className="flex gap-1 text-chart-4" aria-label="5 out of 5 stars">{[1,2,3,4,5].map((star) => <Star key={star} className="size-4 fill-current" />)}</div></div>
-                <blockquote className="mt-7 flex-1 text-base leading-7 text-foreground">“{item.quote}”</blockquote>
-                <figcaption className="mt-7 border-t border-border pt-5"><p className="font-semibold">{item.name}</p><p className="mt-1 text-sm text-muted-foreground">{item.role}</p></figcaption>
-              </figure>
+            {CLIENT_VALUES.map(([title, copy]) => (
+              <article key={title} className="rounded-md border border-border bg-card p-7 shadow-sm">
+                <h3 className="text-xl font-bold">{title}</h3>
+                <p className="mt-4 text-sm leading-7 text-muted-foreground">{copy}</p>
+              </article>
             ))}
           </div>
         </div>
@@ -635,9 +683,9 @@ function Index() {
 
       <section className="border-y border-border bg-secondary/45 py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <p className="text-center text-xs font-semibold uppercase text-muted-foreground">Who we work with</p>
+          <p className="text-center text-xs font-semibold uppercase text-muted-foreground">Who We Support</p>
           <div className="mt-7 grid grid-cols-2 gap-y-6 text-center text-sm font-bold text-foreground/55 sm:grid-cols-5">
-            {["ARCHITECTS", "CONTRACTORS", "DEVELOPERS", "OWNERS", "FACILITY TEAMS"].map((partner) => <span key={partner}>{partner}</span>)}
+            {CLIENTS.map((partner) => <span key={partner}>{partner}</span>)}
           </div>
         </div>
       </section>
@@ -645,11 +693,11 @@ function Index() {
       <section className="border-t border-border py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <SectionHeading eyebrow="Blog" title="Notes on sets that survive plan check." copy="Three practical reads on permit sheets, MEP coordination, and home additions." />
+            <SectionHeading eyebrow="Blog" title="Notes on U.S. drawing requirements." copy="Practical reads on permit documentation, MEP coordination, load calculations, ADUs, and when a professional seal is required." />
             <Button variant="outline" className="w-fit" asChild><Link to="/blog">All articles <ArrowRight /></Link></Button>
           </div>
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
-            {BLOGS.map((post) => (
+            {FEATURED_POSTS.map((post) => (
               <article key={post.slug} className="flex flex-col rounded-md border border-border bg-card p-7">
                 <p className="text-xs font-semibold uppercase text-primary">{post.category}</p>
                 <h3 className="mt-4 text-xl font-bold leading-snug">{post.title}</h3>
@@ -664,7 +712,7 @@ function Index() {
       <section className="bg-secondary/55 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-            <SectionHeading eyebrow="Locations" title="Key states we document." />
+            <SectionHeading eyebrow="U.S. Project Coverage" title="Remote support for projects across the United States." copy="Our experience and project support can include jurisdictions in California, Texas, Florida, New York, Illinois, Georgia, North Carolina, Arizona, Washington, and Colorado. Project requirements vary by city, county, state, building type, and Authority Having Jurisdiction (AHJ). If your project requires a licensed architect or Professional Engineer, we can prepare the design documentation for review and coordinate with the appropriate U.S.-licensed professional designated for the project." />
             <Button variant="outline" className="w-fit" asChild><Link to="/locations">All locations <ArrowRight /></Link></Button>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -683,9 +731,27 @@ function Index() {
             <div className="bg-primary p-7 text-primary-foreground sm:p-10 lg:p-12">
               <Mail className="size-10" />
               <h2 className="mt-8 text-3xl font-bold leading-tight sm:text-4xl">Have a U.S. project that needs drawings?</h2>
-              <p className="mt-5 leading-7 text-primary-foreground/80">Send us your project information, existing drawings, sketches, or scope of work. We’ll review your requirements and provide a clear proposal for the required design and drafting services.</p>
-              <div className="mt-10 space-y-5 border-t border-primary-foreground/25 pt-8">
-                {["Clear scope and next steps", "Coordinated multidisciplinary review", "Practical, responsive support"].map((item) => <p key={item} className="flex items-center gap-3 text-sm font-medium"><Check className="size-5" />{item}</p>)}
+              <p className="mt-5 leading-7 text-primary-foreground/80">Send us your project information and we will review the available scope and drawing requirements.</p>
+              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-3 rounded-full bg-primary-foreground/10 px-4 py-3 text-sm font-semibold transition-colors hover:bg-primary-foreground/20">
+                <WhatsAppIcon className="size-5" />
+                WhatsApp {WHATSAPP_DISPLAY}
+              </a>
+              <p className="mt-6 text-sm font-semibold">You can send</p>
+              <ul className="mt-3 grid grid-cols-2 gap-2 text-sm text-primary-foreground/85">
+                {["Existing drawings", "Architectural plans", "PDFs / DWGs", "Revit models", "Site plans", "Sketches", "Photos", "Project specifications", "Scope of work", "City / county information"].map((item) => (
+                  <li key={item} className="flex items-start gap-2"><Check className="mt-0.5 size-4 shrink-0" />{item}</li>
+                ))}
+              </ul>
+              <div className="mt-8 border-t border-primary-foreground/25 pt-6">
+                <p className="text-sm font-semibold">What happens next?</p>
+                <ol className="mt-4 space-y-3">
+                  {NEXT_STEPS.map((step, index) => (
+                    <li key={step} className="flex items-start gap-3 text-sm leading-6 text-primary-foreground/85">
+                      <span className="font-semibold text-primary-foreground">{index + 1}.</span>
+                      {step}
+                    </li>
+                  ))}
+                </ol>
               </div>
             </div>
             <ContactForm />
@@ -697,12 +763,30 @@ function Index() {
 
       <footer className="bg-foreground text-primary-foreground">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
-          <div className="lg:pr-8"><Logo light /><p className="mt-5 text-sm leading-6 text-primary-foreground/60">Architectural | Structural | Mechanical | Electrical | Plumbing | Permit Drawings. Design and drafting support across the United States.</p></div>
-          <div><h3 className="text-sm font-semibold">Explore</h3><nav className="mt-5 grid gap-3"><Link to="/services" className="text-sm text-primary-foreground/60 transition-colors hover:text-primary">Services</Link><Link to="/locations" className="text-sm text-primary-foreground/60 transition-colors hover:text-primary">Locations</Link><Link to="/blog" className="text-sm text-primary-foreground/60 transition-colors hover:text-primary">Blogs</Link><a href="#projects" className="text-sm text-primary-foreground/60 transition-colors hover:text-primary">Projects</a><a href="#contact" className="text-sm text-primary-foreground/60 transition-colors hover:text-primary">Contact</a></nav></div>
+          <div className="lg:pr-8">
+            <Logo light />
+            <p className="mt-5 text-sm font-semibold leading-6">Hassan Building Design Group USA</p>
+            <p className="mt-3 text-sm leading-6 text-primary-foreground/60">Architectural Design | Structural Design | Mechanical / HVAC | Electrical | Plumbing | BIM | Permit Drawing Documentation</p>
+            <p className="mt-3 text-sm leading-6 text-primary-foreground/60">U.S. Residential & Commercial Design Support</p>
+            <p className="mt-3 text-sm font-medium leading-6">Design & Documentation Only · No Construction or Installation Services</p>
+          </div>
+          <div><h3 className="text-sm font-semibold">Explore</h3><nav className="mt-5 grid gap-3"><Link to="/services" className="text-sm text-primary-foreground/60 transition-colors hover:text-primary">Services</Link><Link to="/locations" className="text-sm text-primary-foreground/60 transition-colors hover:text-primary">Locations</Link><Link to="/blog" className="text-sm text-primary-foreground/60 transition-colors hover:text-primary">Blogs</Link><a href="#projects" className="text-sm text-primary-foreground/60 transition-colors hover:text-primary">Selected Work</a><a href="#contact" className="text-sm text-primary-foreground/60 transition-colors hover:text-primary">Contact</a></nav></div>
           <div><h3 className="text-sm font-semibold">Services</h3><div className="mt-5 grid gap-3">{SERVICES.map((service) => <Link key={service.title} to="/services/$service" params={{service:service.slug}} className="text-sm text-primary-foreground/60 transition-colors hover:text-primary">{service.title}</Link>)}</div></div>
-          <div><h3 className="text-sm font-semibold">Start a project</h3><p className="mt-5 text-sm leading-6 text-primary-foreground/60">Design and documentation only. No construction or installation services.</p><Button onClick={() => scrollToSection("#contact")} className="mt-6">Request a Quote <ArrowRight /></Button></div>
+          <div><h3 className="text-sm font-semibold">Start a project</h3><p className="mt-5 text-sm leading-6 text-primary-foreground/60">Remote design, drafting, BIM, calculations, and permit documentation. No construction or installation services.</p><Button onClick={() => scrollToSection("#contact")} className="mt-6">Request a Project Quote <ArrowRight /></Button></div>
         </div>
-        <div className="border-t border-primary-foreground/10"><div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 text-xs text-primary-foreground/45 sm:flex-row sm:items-center sm:justify-between sm:px-6"><p>© 2026 Hassan Building Design Group USA. All rights reserved.</p><p className="flex items-center gap-2"><Building2 className="size-4" /> Designed for better buildings.</p></div></div>
+        <div className="border-t border-primary-foreground/10">
+          <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
+            <SocialLinks />
+          </div>
+          <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
+            <h3 className="text-sm font-semibold">Design & Professional Licensing Disclaimer</h3>
+            <p className="mt-3 max-w-5xl text-xs leading-6 text-primary-foreground/55">{DISCLAIMER}</p>
+          </div>
+          <div className="mx-auto flex max-w-7xl flex-col gap-3 border-t border-primary-foreground/10 px-4 py-5 text-xs text-primary-foreground/45 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+            <p>© 2026 Hassan Building Design Group USA. All rights reserved.</p>
+            <p className="flex items-center gap-2"><Building2 className="size-4" /> U.S. residential and commercial design support</p>
+          </div>
+        </div>
       </footer>
     </main>
   );
