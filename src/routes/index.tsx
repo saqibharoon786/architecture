@@ -28,6 +28,7 @@ import hapAhuB from "@/assets/hap-ahu-b.png";
 import designImage from "@/assets/design-documentation.jpg";
 import { Navbar, Logo } from "@/components/site/navigation";
 import { DesignSections } from "@/components/site/design-sections";
+import { ProjectSets } from "@/components/site/project-sets";
 import { BLOGS, type BlogPost } from "@/lib/blogs";
 import { LOCATIONS } from "@/lib/locations";
 import { CLIENTS, DISCLAIMER, SERVICES } from "@/lib/services";
@@ -528,7 +529,9 @@ function Index() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading eyebrow="Selected Work & Drawing Samples" title="Examples of coordinated documentation." copy="Explore examples of architectural, structural, mechanical, electrical, plumbing, BIM, and permit documentation. The samples below demonstrate drafting, design, coordination, and documentation capabilities across different building types and project requirements." />
           <p className="mt-6 max-w-3xl border-l-2 border-primary pl-4 text-sm leading-6 text-muted-foreground">Drawing samples are provided for portfolio and demonstration purposes. Project scope, codes, jurisdiction requirements, and professional review requirements vary by project.</p>
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          <ProjectSets />
+          <h3 className="mt-16 text-lg font-bold text-foreground">More drawing samples</h3>
+          <div className="mt-6 grid gap-6 lg:grid-cols-2">
             <ProjectDrawing
               image={mechanicalPlan}
               title="Mechanical floor plan"
