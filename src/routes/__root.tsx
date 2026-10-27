@@ -1,15 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import {
-  Outlet,
-  Link,
-  createRootRouteWithContext,
-  useRouter,
-  HeadContent,
-  Scripts,
-} from "@tanstack/react-router";
-import { useEffect, lazy, type ReactNode } from "react";
+import { Outlet, Link, createRootRouteWithContext, useRouter, HeadContent } from "@tanstack/react-router";
+import { useEffect, lazy } from "react";
 
-import appCss from "../styles.css?url";
 import { WhatsAppButton } from "../components/site/social-links";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -88,10 +80,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",
       },
@@ -107,32 +95,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],
   }),
-  shellComponent: RootShell,
   component: RootComponent,
   errorComponent: lazy(() => Promise.resolve({ default: ErrorComponent })),
   notFoundComponent: NotFoundComponent,
 });
-
-function RootShell({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <HeadContent />
       <Outlet />
       <WhatsAppButton />
     </QueryClientProvider>
