@@ -561,7 +561,7 @@ function Index() {
       <section id="salon-set" className="scroll-mt-6 border-t border-border bg-secondary/45 py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <SectionHeading eyebrow="Representative Drawing Sample" title="Sample MEP drawing set — commercial tenant improvement." copy="A representative multi-sheet MEP sample for a commercial tenant improvement. Every page is below, in order, from the cover through the plumbing riser. Shown for portfolio and demonstration purposes." />
+            <SectionHeading eyebrow="Representative Drawing Sample" title="Salon MEP permit set, USA." copy="A hair-salon MEP permit set for a commercial tenant improvement. Every page is below, in order, from the cover through the plumbing riser. Shown for portfolio and demonstration purposes." />
             <Button asChild variant="outline" className="w-fit">
               <a href="/mep-salon-metro-parkway.pdf" target="_blank" rel="noreferrer">Open sample PDF <FileText /></a>
             </Button>
@@ -584,7 +584,7 @@ function Index() {
       <section id="hap-report" className="scroll-mt-6 border-t border-border py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <SectionHeading eyebrow="Representative HAP Calculation Report" title="Commercial HVAC load calculation sample — Denver, Colorado." copy="Sample HVAC load calculation demonstrating space inputs, system sizing, cooling and heating loads, and airflow requirements. Two split air handlers were sized for tenant spaces in Denver, Colorado." />
+            <SectionHeading eyebrow="Representative HAP Calculation Report" title="HVAC load calculation through HAP software." copy="Hourly Analysis Program load calculation for two tenant spaces in Denver, Colorado, with space inputs, system sizing, cooling and heating loads, and airflow requirements." />
             <Button asChild variant="outline" className="w-fit">
               <a href="/hap-report.pdf" target="_blank" rel="noreferrer">Open sample report <FileText /></a>
             </Button>
