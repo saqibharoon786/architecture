@@ -221,6 +221,124 @@ function SectionHeading({ eyebrow, title, copy }: { eyebrow: string; title: stri
   );
 }
 
+const SHOWCASE_VIDEOS = [
+  {
+    src: "/videos/mep-permit-support.mp4",
+    poster: "/videos/mep-permit-support.jpg",
+    title: "USA MEP design and permit support",
+    label: "Permit support introduction",
+  },
+  {
+    src: "/videos/mep-design-drafting.mp4",
+    poster: "/videos/mep-design-drafting.jpg",
+    title: "MEP design and drafting",
+    label: "MEP design and drafting introduction",
+  },
+] as const;
+
+function ShowcaseVideo({
+  src,
+  poster,
+  title,
+  label,
+}: (typeof SHOWCASE_VIDEOS)[number]) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const userPaused = useRef(false);
+  const [muted, setMuted] = useState(true);
+  const [paused, setPaused] = useState(true);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (userPaused.current) return;
+        if (entry?.isIntersecting) {
+          void video.play();
+          setPaused(false);
+          return;
+        }
+        video.pause();
+        setPaused(true);
+      },
+      { threshold: 0.55 },
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  function togglePlay() {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      userPaused.current = false;
+      void video.play();
+      setPaused(false);
+      return;
+    }
+    userPaused.current = true;
+    video.pause();
+    setPaused(true);
+  }
+
+  function toggleMute() {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setMuted(video.muted);
+  }
+
+  return (
+    <figure className="mx-auto w-full max-w-[22rem]">
+      <div className="relative overflow-hidden rounded-md bg-foreground shadow-2xl shadow-foreground/15">
+        <video
+          ref={videoRef}
+          className="aspect-[9/16] w-full object-cover"
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={poster}
+          aria-label={label}
+        >
+          <source src={src} type="video/mp4" />
+        </video>
+        <div className="absolute top-3 right-3 flex items-center gap-2">
+          <Button type="button" variant="secondary" size="icon" className="rounded-full bg-card/95 shadow-lg" onClick={togglePlay} aria-label={paused ? `Play ${title}` : `Pause ${title}`}>
+            {paused ? <Play /> : <Pause />}
+          </Button>
+          <Button type="button" variant="secondary" size="icon" className="rounded-full bg-card/95 shadow-lg" onClick={toggleMute} aria-label={muted ? `Unmute ${title}` : `Mute ${title}`}>
+            {muted ? <VolumeX /> : <Volume2 />}
+          </Button>
+        </div>
+      </div>
+      <figcaption className="mt-4 text-sm font-semibold text-foreground">{title}</figcaption>
+    </figure>
+  );
+}
+
+function VideoShowcase() {
+  return (
+    <section className="border-t border-border bg-secondary/45 py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <SectionHeading
+          eyebrow="Watch"
+          title="A closer look at the design work."
+          copy="Two short introductions to U.S. MEP design, drafting, and permit documentation support."
+        />
+        <div className="mt-12 grid items-start justify-center gap-8 sm:grid-cols-2 lg:mx-auto lg:max-w-4xl">
+          {SHOWCASE_VIDEOS.map((video) => (
+            <ShowcaseVideo key={video.src} {...video} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function AdSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const userPaused = useRef(false);
@@ -761,6 +879,8 @@ function Index() {
           </div>
         </div>
       </section>
+
+      <VideoShowcase />
 
       <AdSection />
 

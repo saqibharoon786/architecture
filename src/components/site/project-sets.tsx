@@ -172,6 +172,192 @@ const GEOTHERMAL: Plan = {
   alt: "Geothermal HVAC schematic with a heat pump, two wells, a hot water tank, and fan-coil units",
 };
 
+type TabPlan = Plan & { icon: typeof Wind };
+
+const PEER_PLANS: TabPlan[] = [
+  {
+    icon: Wind,
+    title: "Basement HVAC Floor Plan",
+    place: "829 W. Mulberry Street · Louisville, Colorado",
+    sheet: "H1.0 · November 13, 2022",
+    detail:
+      "Supply and return ductwork through the basement entertainment room, utility room, and bedrooms. Sheet H1.0 of the eight-sheet HVAC permit set.",
+    image: "/projects/peer-hvac-basement.jpg",
+    pdf: "/projects/peer-residence-hvac.pdf",
+    alt: "HVAC basement floor plan, sheet H1.0, for the Peer residence at 829 W. Mulberry Street in Louisville, Colorado",
+  },
+  {
+    icon: Wind,
+    title: "Main Floor HVAC Plan",
+    place: "829 W. Mulberry Street · Louisville, Colorado",
+    sheet: "H1.0A · November 13, 2022",
+    detail: "Main-floor supply and return ducts for the great room, kitchen, master suite, and the rooms beside the garage.",
+    image: "/projects/peer-hvac-main.jpg",
+    pdf: "/projects/peer-residence-hvac.pdf",
+    alt: "HVAC main floor plan, sheet H1.0A, for the Peer residence in Louisville, Colorado",
+  },
+  {
+    icon: Droplets,
+    title: "Basement Water Supply",
+    place: "829 W. Mulberry Street · Louisville, Colorado",
+    sheet: "P1.0 · November 15, 2022",
+    detail:
+      "Domestic cold and hot water on the basement floor, serving the entertainment room, bedrooms, and baths. Sheet P1.0 of the seven-sheet plumbing permit set.",
+    image: "/projects/peer-plumbing-basement.jpg",
+    pdf: "/projects/peer-residence-plumbing.pdf",
+    alt: "Water supply basement floor plan, sheet P1.0, for the Peer residence at 829 W. Mulberry Street in Louisville, Colorado",
+  },
+  {
+    icon: Droplets,
+    title: "Main Floor Water Supply",
+    place: "829 W. Mulberry Street · Louisville, Colorado",
+    sheet: "P1.0A · November 15, 2022",
+    detail:
+      "Main-floor domestic water for the kitchen, laundry, powder room, and master bath. The PDF also includes the drainage plans, riser, and fixture schedule.",
+    image: "/projects/peer-plumbing-main.jpg",
+    pdf: "/projects/peer-residence-plumbing.pdf",
+    alt: "Water supply main floor plan, sheet P1.0A, for the Peer residence in Louisville, Colorado",
+  },
+  {
+    icon: Waves,
+    title: "Basement Drainage Plan",
+    place: "829 W. Mulberry Street · Louisville, Colorado",
+    sheet: "P2.0 · November 29, 2022",
+    detail:
+      "Waste and vent piping through the basement baths, utility room, and entertainment room, with the sewer connection noted on the sheet.",
+    image: "/projects/peer-plumbing-drainage.jpg",
+    pdf: "/projects/peer-residence-plumbing.pdf",
+    alt: "Drainage basement floor plan, sheet P2.0, for the Peer residence in Louisville, Colorado",
+  },
+  {
+    icon: Thermometer,
+    title: "Manual J Load Calculation",
+    place: "829 W. Mulberry Street · Louisville, Colorado",
+    sheet: "20 pages · February 25, 2023",
+    detail:
+      "ACCA Manual J 8th edition load calculation for the Peer residence. Cooling is 4.32 tons, heating is 48.4 MBH, and the design supply airflow is 1,084 CFM.",
+    image: "/projects/peer-manual-jsd.jpg",
+    pdf: "/projects/peer-residence-manual-jsd.pdf",
+    alt: "Manual J project report for the Peer residence, showing heating and cooling loads",
+  },
+];
+
+const GUDE_PLANS: TabPlan[] = [
+  {
+    icon: Wind,
+    title: "HVAC Floor Plan",
+    place: "1301 E. Gude Drive · Rockville, Maryland",
+    sheet: "H1.0 · 7 sheets",
+    detail: "Duct layout for the workshop, offices, storage, and car bays, with air handlers and exhaust fans on the floor.",
+    image: "/projects/gude-hvac-floor.jpg",
+    pdf: "/projects/gude-hvac.pdf",
+    alt: "HVAC floor plan, sheet H1.0, for the tenant layout at 1301 E. Gude Drive in Rockville, Maryland",
+  },
+  {
+    icon: Droplets,
+    title: "Plumbing Plan",
+    place: "1301 E. Gude Drive · Rockville, Maryland",
+    sheet: "P2.0 · 2 sheets",
+    detail: "Drainage and domestic water for the office toilets and car bay, with the sewer and vent riser on the sheet.",
+    image: "/projects/gude-plumbing.jpg",
+    pdf: "/projects/gude-plumbing.pdf",
+    alt: "Plumbing floor plan, sheet P2.0, for the tenant layout at 1301 E. Gude Drive in Rockville, Maryland",
+  },
+];
+
+const NINTH_PLANS: TabPlan[] = [
+  {
+    icon: Wind,
+    title: "Basement and First Floor Mechanical",
+    place: "4518 9th Street NW · Washington, DC",
+    sheet: "M101 · 3 sheets",
+    detail: "Ductwork for the basement and first floor, with AHU-1 serving both levels.",
+    image: "/projects/ninth-mechanical-lower.jpg",
+    pdf: "/projects/ninth-mechanical.pdf",
+    alt: "Basement and first floor mechanical plan, sheet M101, for the remodel at 4518 9th Street NW in Washington, DC",
+  },
+  {
+    icon: Wind,
+    title: "Second and Third Floor Mechanical",
+    place: "4518 9th Street NW · Washington, DC",
+    sheet: "M102",
+    detail: "Supply and return ducts on the second and third floors, with exhaust at the baths.",
+    image: "/projects/ninth-mechanical-upper.jpg",
+    pdf: "/projects/ninth-mechanical.pdf",
+    alt: "Second and third floor mechanical plan, sheet M102, for the remodel at 4518 9th Street NW in Washington, DC",
+  },
+  {
+    icon: Droplets,
+    title: "Basement and First Floor Sanitary",
+    place: "4518 9th Street NW · Washington, DC",
+    sheet: "P101 · 7 sheets",
+    detail:
+      "Sanitary piping for the basement rec room, kitchenette, and the first-floor kitchen and baths. The PDF also includes the upper floors, domestic water, and the fixture schedule.",
+    image: "/projects/ninth-plumbing.jpg",
+    pdf: "/projects/ninth-plumbing.pdf",
+    alt: "Basement and first floor sanitary plan, sheet P101, for the remodel at 4518 9th Street NW in Washington, DC",
+  },
+];
+
+const SYDNEY_PLANS: TabPlan[] = [
+  {
+    icon: Wind,
+    title: "Ground Level Services",
+    place: "Macquarie University Sports Fields · Sydney",
+    sheet: "14 sheets",
+    detail:
+      "Ground-level supply, return, and exhaust for the Sydney FC Centre of Excellence, with louvre free-area notes and the laundry exhaust on the sheet.",
+    image: "/projects/sydney-fc-ground.jpg",
+    pdf: "/projects/sydney-fc-mechanical.pdf",
+    alt: "Ground level mechanical services plan for the Sydney FC Centre of Excellence",
+  },
+  {
+    icon: Wind,
+    title: "Level 1 Services",
+    place: "Macquarie University Sports Fields · Sydney",
+    sheet: "Level 1",
+    detail: "Level 1 ductwork and fan-coil layout for the team rooms, offices, pool hall, and dining, with refrigerant piping from the rooftop VRF.",
+    image: "/projects/sydney-fc-level1.jpg",
+    pdf: "/projects/sydney-fc-mechanical.pdf",
+    alt: "Level 1 mechanical services plan for the Sydney FC Centre of Excellence",
+  },
+];
+
+const ELECTRICAL_PLANS: TabPlan[] = [
+  {
+    icon: Lightbulb,
+    title: "Main Floor Lighting Plan",
+    place: "Makmo Design · Permit set",
+    sheet: "E-1.1 · 9 sheets",
+    detail:
+      "Lighting layout for the great room, kitchen, master suite, and garage, tagged to panel PA. The PDF also includes the basement and roof lighting plans and the general notes.",
+    image: "/projects/electrical-main-lighting.jpg",
+    pdf: "/projects/electrical-permit-set.pdf",
+    alt: "Electrical main lighting plan, sheet E-1.1, from the Makmo Design permit set",
+  },
+  {
+    icon: Zap,
+    title: "Main Floor Power Plan",
+    place: "Makmo Design · Permit set",
+    sheet: "E-2.1",
+    detail: "Device and circuit layout on the main floor. Basement and roof power plans are in the same nine-sheet set.",
+    image: "/projects/electrical-main-power.jpg",
+    pdf: "/projects/electrical-permit-set.pdf",
+    alt: "Electrical main power plan, sheet E-2.1, from the Makmo Design permit set",
+  },
+  {
+    icon: Zap,
+    title: "Riser and Load Analysis",
+    place: "Makmo Design · Permit set",
+    sheet: "E-3.0",
+    detail:
+      "Single-line from the meter and 200A disconnect to panels PA and PB, with the proposed load analysis. Panel schedules are on sheet E-4.0.",
+    image: "/projects/electrical-riser.jpg",
+    pdf: "/projects/electrical-permit-set.pdf",
+    alt: "Electrical riser and load analysis, sheet E-3.0, from the Makmo Design permit set",
+  },
+];
+
 const PDF_SETS: Plan[] = [
   {
     title: "Evans Street HVAC Set",
@@ -560,9 +746,125 @@ function PdfSetCard({ plan }: { plan: Plan }) {
   );
 }
 
+function TabbedProject({
+  eyebrow,
+  title,
+  summary,
+  plans,
+  tabsLabel,
+}: {
+  eyebrow: string;
+  title: string;
+  summary: string;
+  plans: TabPlan[];
+  tabsLabel: string;
+}) {
+  const [active, setActive] = useState(0);
+  const [open, setOpen] = useState(false);
+  const plan = plans[active];
+  const Icon = plan.icon;
+  const tabCols = plans.length > 2 ? "sm:grid-cols-3" : "sm:grid-cols-2";
+
+  return (
+    <article className="overflow-hidden rounded-md border border-border bg-card shadow-sm">
+      <div className="border-b border-border px-6 py-6 sm:px-8">
+        <p className="text-xs font-semibold uppercase text-primary">{eyebrow}</p>
+        <h3 className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">{title}</h3>
+        <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">{summary}</p>
+      </div>
+      <div className="lg:grid lg:grid-cols-[18rem_minmax(0,1fr)]">
+        <div className={`grid gap-2 border-b border-border p-4 ${tabCols} lg:grid-cols-1 lg:border-r lg:border-b-0 lg:p-5`} role="tablist" aria-label={tabsLabel}>
+          {plans.map((item, index) => {
+            const ItemIcon = item.icon;
+            const selected = index === active;
+            return (
+              <button
+                key={item.title}
+                type="button"
+                role="tab"
+                aria-selected={selected}
+                onClick={() => setActive(index)}
+                className={`flex items-start gap-3 rounded-md border px-3 py-3 text-left transition-colors ${selected ? "border-primary bg-primary text-primary-foreground" : "border-border bg-background text-foreground hover:border-primary/40"}`}
+              >
+                <ItemIcon className="mt-0.5 size-4 shrink-0" />
+                <span>
+                  <span className="block text-sm font-semibold leading-5">{item.title}</span>
+                  <span className={`mt-1 block text-xs ${selected ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{item.sheet}</span>
+                </span>
+              </button>
+            );
+          })}
+        </div>
+        <div className="min-w-0">
+          <button type="button" onClick={() => setOpen(true)} className="block w-full bg-white p-4 text-left sm:p-6" aria-label={`View ${plan.title} at full size`}>
+            <img src={plan.image} alt={plan.alt} className="mx-auto max-h-[620px] w-full object-contain" />
+          </button>
+          <div className="flex flex-col gap-4 border-t border-border p-5 sm:flex-row sm:items-end sm:justify-between sm:p-6">
+            <div>
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase text-primary">
+                <Icon className="size-4" /> {plan.sheet}
+              </p>
+              <h4 className="mt-2 text-lg font-bold text-foreground">{plan.title}</h4>
+              <p className="mt-2 max-w-xl text-sm leading-6 text-muted-foreground">{plan.detail}</p>
+            </div>
+            <div className="flex shrink-0 flex-wrap gap-2">
+              <Button type="button" variant="outline" onClick={() => setOpen(true)}>
+                View full size <ArrowRight />
+              </Button>
+              {plan.pdf && (
+                <Button asChild variant="outline">
+                  <a href={plan.pdf} target="_blank" rel="noreferrer">
+                    Open PDF <FileText />
+                  </a>
+                </Button>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+      <DrawingDialog open={open} onOpenChange={setOpen} title={`${plan.title} — ${title}`} image={plan.image} alt={plan.alt} />
+    </article>
+  );
+}
+
 export function ProjectSets() {
   return (
     <div className="mt-12 grid gap-8">
+      <TabbedProject
+        eyebrow="One residence · HVAC, plumbing, and Manual J"
+        title="Peer Residence, Louisville, Colorado"
+        summary="New construction at 829 W. Mulberry Street. HVAC permit set issued November 13, 2022, a seven-sheet plumbing permit set, and the Manual J load calculation."
+        plans={PEER_PLANS}
+        tabsLabel="Peer residence HVAC and plumbing plans"
+      />
+      <TabbedProject
+        eyebrow="Tenant space · lighting, power, and riser"
+        title="Electrical Permit Set"
+        summary="Nine-sheet electrical permit set for a tenant space: basement, main floor, and roof lighting and power, plus the riser, load analysis, and panel schedules."
+        plans={ELECTRICAL_PLANS}
+        tabsLabel="Electrical permit set plans"
+      />
+      <TabbedProject
+        eyebrow="One tenant · HVAC and plumbing"
+        title="Tenant Layout, Rockville, Maryland"
+        summary="Commercial tenant layout at 1301 E. Gude Drive. HVAC floor plan for the workshop and offices, and the plumbing plan for the toilets and car bay."
+        plans={GUDE_PLANS}
+        tabsLabel="Gude Drive tenant plans"
+      />
+      <TabbedProject
+        eyebrow="One residence · mechanical and sanitary"
+        title="4518 9th Street NW Remodel, Washington, DC"
+        summary="Whole-house remodel. Mechanical plans from the basement through the third floor, and the sanitary plumbing set."
+        plans={NINTH_PLANS}
+        tabsLabel="9th Street NW remodel plans"
+      />
+      <TabbedProject
+        eyebrow="Sports facility · mechanical services"
+        title="Sydney FC Centre of Excellence"
+        summary="Mechanical services for the centre at Macquarie University Sports Fields. Ground level and level 1 supply, return, exhaust, and VRF layouts."
+        plans={SYDNEY_PLANS}
+        tabsLabel="Sydney FC mechanical plans"
+      />
       <TexasHvacProject />
       <HighRiseProject />
       <JoeResidenceProject />
