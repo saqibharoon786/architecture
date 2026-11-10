@@ -11,7 +11,7 @@ export type BlogPost = {
 export const BLOGS: BlogPost[] = [
   {
     slug: "what-a-permit-drawing-set-includes",
-    title: "What a U.S. permit drawing set actually needs",
+    title: "What a USA permit drawing set actually needs",
     excerpt:
       "Plan reviewers do not approve a mood board. Here is the sheet list that usually carries a residential or small commercial permit, and what to send before drafting starts.",
     date: "March 4, 2026",
@@ -22,7 +22,7 @@ export const BLOGS: BlogPost[] = [
         heading: "Start with the scope, not the software",
         paragraphs: [
           "A permit set is a record of the work you want approved. Before anyone opens a title block, the useful question is simple: what is changing, and which city or county will review it? A kitchen remodel, a rooftop unit replacement, and a new tenant restaurant do not need the same sheets. They do need drawings that match the scope you will build.",
-          "Hassan Building Design Group USA prepares architectural, structural, mechanical, electrical, and plumbing documentation for that review. We do not build the project. The drawings are the work product, organized so a reviewer can find the plan, the schedule, and the note that explains them.",
+          "Hassan Building Design Group prepares architectural, structural, mechanical, electrical, and plumbing documentation for that review. We do not build the project. The drawings are the work product, organized so a reviewer can find the plan, the schedule, and the note that explains them.",
         ],
       },
       {
@@ -36,7 +36,7 @@ export const BLOGS: BlogPost[] = [
         heading: "Consistency is what reviewers notice",
         paragraphs: [
           "The fastest way to collect comments is a set that disagrees with itself. A door on the plan that is missing from the schedule, a panel that feeds equipment the mechanical sheet never shows, or a beam drawn through a duct are all the same problem: the disciplines were drafted apart. We coordinate backgrounds, tags, and sheet order so those conflicts are resolved before the PDF goes to the building department.",
-          "General notes matter as much as linework. They should say which codes and project information the drawings were based on, and they should not promise a seal, a special inspection, or a construction method that is outside the scope. Where a licensed architect or Professional Engineer must sign, that review is coordinated with the appropriate U.S.-licensed professional.",
+          "General notes matter as much as linework. They should say which codes and project information the drawings were based on, and they should not promise a seal, a special inspection, or a construction method that is outside the scope. Where a licensed architect or Professional Engineer must sign, that review is coordinated with the appropriate USA-licensed professional.",
         ],
       },
       {
@@ -160,7 +160,7 @@ export const BLOGS: BlogPost[] = [
   },
   {
     slug: "mep-permit-drawings-commercial",
-    title: "MEP permit drawings for U.S. commercial projects",
+    title: "MEP permit drawings for USA commercial projects",
     excerpt:
       "Commercial plan review looks for coordinated mechanical, electrical, and plumbing sheets that match the architectural background and the occupancy.",
     date: "June 24, 2026",
@@ -185,7 +185,7 @@ export const BLOGS: BlogPost[] = [
         heading: "Send the occupancy with the drawings",
         paragraphs: [
           "Tell us the city and county, the building use, and whether this is a tenant improvement or a shell. Include the lease outline, existing plans, equipment cut sheets, and any previous review comments. A restaurant hood and a dental compressor do not get documented from the same assumptions.",
-          "Where a licensed professional must sign or seal the MEP documents, that step is coordinated with the U.S.-licensed professional designated for the project.",
+          "Where a licensed professional must sign or seal the MEP documents, that step is coordinated with the USA-licensed professional designated for the project.",
         ],
       },
     ],
@@ -274,7 +274,7 @@ export const BLOGS: BlogPost[] = [
         heading: "Who prepares which sheets",
         paragraphs: [
           "We can draft both. The architectural package covers plans, site information, elevations, schedules, life safety plans, and details. The structural package covers foundation and framing plans, sections, connection details, and schedules. They should use the same grids and the same dimensions.",
-          "Many jurisdictions require a licensed architect, a Professional Engineer, or both before those sheets can be submitted for permit. We do not substitute for that license. Where a seal is required, the documents are coordinated with the U.S.-licensed professional designated for the project.",
+          "Many jurisdictions require a licensed architect, a Professional Engineer, or both before those sheets can be submitted for permit. We do not substitute for that license. Where a seal is required, the documents are coordinated with the USA-licensed professional designated for the project.",
         ],
       },
       {
@@ -418,7 +418,7 @@ export const BLOGS: BlogPost[] = [
     slug: "when-a-drawing-needs-a-pe-seal",
     title: "When does a drawing need a Professional Engineer’s seal?",
     excerpt:
-      "Sealing rules are set by the state and the project, not by the drafter. Here is how to tell when a U.S.-licensed professional has to review the set.",
+      "Sealing rules are set by the state and the project, not by the drafter. Here is how to tell when a USA-licensed professional has to review the set.",
     date: "October 7, 2026",
     readTime: "7 min read",
     category: "Professional Review",
@@ -427,7 +427,7 @@ export const BLOGS: BlogPost[] = [
         heading: "The seal follows the law, not the title block",
         paragraphs: [
           "Many states require engineering documents that fall under their practice acts to be prepared or reviewed by a licensed Professional Engineer and to carry that engineer’s seal. Architectural documents submitted for permitting can have a parallel requirement for a licensed architect. Texas and California are often cited because their statutes and board rules are explicit, but they are not the only states with sealing rules.",
-          "Hassan Building Design Group USA provides design, drafting, calculation, and documentation support. We do not represent an unlicensed person or company as a licensed U.S. architect or Professional Engineer. When a seal is required, the drawing package is coordinated with the licensed professional designated for the project.",
+          "Hassan Building Design Group provides design, drafting, calculation, and documentation support. We do not represent an unlicensed person or company as a licensed USA architect or Professional Engineer. When a seal is required, the drawing package is coordinated with the licensed professional designated for the project.",
         ],
       },
       {
@@ -440,7 +440,7 @@ export const BLOGS: BlogPost[] = [
       {
         heading: "How coordination with a licensee works",
         paragraphs: [
-          "The usual path is straightforward. We prepare the drawings and calculations in the agreed scope. The owner’s or client’s U.S.-licensed architect or Professional Engineer reviews the package, requests revisions, and signs or seals the documents they are willing to take responsibility for. We do not apply someone else’s seal, and we do not imply that a draft set is already approved.",
+          "The usual path is straightforward. We prepare the drawings and calculations in the agreed scope. The owner’s or client’s USA-licensed architect or Professional Engineer reviews the package, requests revisions, and signs or seals the documents they are willing to take responsibility for. We do not apply someone else’s seal, and we do not imply that a draft set is already approved.",
           "Permit approval is a separate decision, made by the Authority Having Jurisdiction. A complete, coordinated set makes that review easier to follow. It is not a guarantee.",
         ],
       },

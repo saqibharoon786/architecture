@@ -23,7 +23,7 @@ export const Route = createFileRoute("/locations/$state")({
         { title: state ? `Design & Permit Drawing Support in ${state.name} — ${COMPANY}` : "Location not found" },
         { name: "description", content: state?.summary ?? "The requested location could not be found." },
         { property: "og:title", content: state ? `${state.name} design documentation` : "Location not found" },
-        { property: "og:description", content: state?.summary ?? "Explore U.S. permit drawing locations." },
+        { property: "og:description", content: state?.summary ?? "Explore USA permit drawing locations." },
         { property: "og:type", content: "website" },
         { name: "twitter:card", content: "summary_large_image" },
       ],

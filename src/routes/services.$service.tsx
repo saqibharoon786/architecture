@@ -21,10 +21,10 @@ export const Route = createFileRoute("/services/$service")({
     const description = page?.overview[0] ?? service?.copy ?? "The requested design service could not be found.";
     return {
       meta: [
-        { title: service ? `${service.title} — ${COMPANY}` : "Service Not Found — Hassan Building Design Group USA" },
+        { title: service ? `${service.title} — ${COMPANY}` : "Service Not Found — Hassan Building Design Group" },
         { name: "description", content: description },
         { property: "og:title", content: service?.title ?? "Service Not Found" },
-        { property: "og:description", content: service?.copy ?? "Explore our U.S. building design services." },
+        { property: "og:description", content: service?.copy ?? "Explore our USA building design services." },
         { property: "og:type", content: "website" },
         { name: "twitter:card", content: "summary_large_image" },
       ],
@@ -51,7 +51,7 @@ function ServiceDetail() {
         </Button>
         <div className="mt-8 grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <p className="text-sm font-semibold uppercase text-primary">U.S. design & drafting</p>
+            <p className="text-sm font-semibold uppercase text-primary">USA design & drafting</p>
             <h1 className="mt-4 text-3xl font-bold leading-tight sm:text-5xl">{service.title}</h1>
             <p className="mt-6 text-lg leading-8 text-muted-foreground">{service.copy}</p>
             <Button asChild className="mt-8">

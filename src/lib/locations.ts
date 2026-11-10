@@ -52,7 +52,7 @@ export const LOCATIONS: LocationPage[] = [
     cities: ["Miami", "Orlando", "Tampa", "Jacksonville", "Fort Lauderdale", "Naples"],
     intro: [
       "Florida permit sets are judged on more than floor plans. Wind, flood, and opening information show up early in review, and mechanical drawings have to make sense in a humid climate. We prepare architectural, structural, and MEP documentation that keeps those topics on the sheets where reviewers look for them.",
-      "A coastal house addition and an inland restaurant are different submittals. We ask for the address, the flood information you already have, and any prior comments before we lock a sheet list. Where an engineer’s seal is required for structural or wind-related documents, that review is coordinated with a U.S.-licensed professional.",
+      "A coastal house addition and an inland restaurant are different submittals. We ask for the address, the flood information you already have, and any prior comments before we lock a sheet list. Where an engineer’s seal is required for structural or wind-related documents, that review is coordinated with a USA-licensed professional.",
     ],
     focus: [
       { title: "Openings and the exterior", copy: "Elevations, window and door schedules, and notes organized so impact or protection requirements are not buried." },

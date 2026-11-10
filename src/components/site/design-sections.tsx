@@ -94,7 +94,7 @@ export function DesignSections() {
           <div className="grid gap-10 lg:grid-cols-[.7fr_1.3fr]">
             <div>
               <FileCheck2 className="size-10 text-primary" />
-              <h2 className="mt-5 text-3xl font-bold sm:text-4xl">U.S. Permit Drawing Packages</h2>
+              <h2 className="mt-5 text-3xl font-bold sm:text-4xl">USA Permit Drawing Packages</h2>
               <p className="mt-5 leading-7 text-muted-foreground">We prepare organized drawing packages for residential and commercial projects based on the project scope, applicable codes, and local jurisdiction requirements.</p>
             </div>
             <ul className="grid gap-4 sm:grid-cols-2">
@@ -113,7 +113,7 @@ export function DesignSections() {
           </div>
           <div className="mt-16 grid gap-10 lg:grid-cols-2">
             {[
-              { title: "Residential Design Services", copy: "We support U.S. residential projects with design, drafting, coordination, and permit documentation.", lead: "Project types include:", items: RESIDENTIAL },
+              { title: "Residential Design Services", copy: "We support USA residential projects with design, drafting, coordination, and permit documentation.", lead: "Project types include:", items: RESIDENTIAL },
               { title: "Commercial Design Services", copy: "Our drafting and design services also support commercial projects across these common scopes.", lead: "Project types include:", items: COMMERCIAL },
             ].map((group) => (
               <div key={group.title} className="border-t border-border pt-7">
@@ -153,7 +153,7 @@ export function DesignSections() {
       <section className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <p className="text-sm font-semibold uppercase text-primary">Why Choose Us</p>
-          <h2 className="mt-4 max-w-3xl text-3xl font-bold sm:text-4xl">Why choose Hassan Building Design Group USA?</h2>
+          <h2 className="mt-4 max-w-3xl text-3xl font-bold sm:text-4xl">Why choose Hassan Building Design Group?</h2>
           <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {REASONS.map(([title, copy]) => (
               <div key={title} className="border-t border-border pt-6">
@@ -164,7 +164,7 @@ export function DesignSections() {
           </div>
           <div className="mt-14 border-t border-border pt-8">
             <h3 className="text-2xl font-bold">Who We Support</h3>
-            <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {CLIENTS.map((client) => (
                 <li key={client} className="text-sm text-muted-foreground">{client}</li>
               ))}

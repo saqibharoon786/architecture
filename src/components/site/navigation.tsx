@@ -23,11 +23,11 @@ const SECTION_LINKS = [
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
-    <Link to="/" aria-label="Hassan Building Design Group USA home" className={`flex items-center gap-2 ${light ? "text-primary-foreground" : "text-foreground"}`}>
+    <Link to="/" aria-label="Hassan Building Design Group home" className={`flex items-center gap-2 ${light ? "text-primary-foreground" : "text-foreground"}`}>
       <Building2 className="size-8 shrink-0 text-primary" />
       <span className="text-sm font-bold leading-tight">
         HASSAN
-        <span className="block text-[10px] font-medium">BUILDING DESIGN GROUP USA</span>
+        <span className="block text-[10px] font-medium">BUILDING DESIGN GROUP</span>
       </span>
     </Link>
   );
@@ -76,7 +76,7 @@ function LocationMenu() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" sideOffset={12} className="w-[min(40rem,calc(100vw-2rem))] p-3">
-        <DropdownMenuLabel className="text-xs uppercase tracking-wide text-muted-foreground">U.S. project coverage</DropdownMenuLabel>
+        <DropdownMenuLabel className="text-xs uppercase tracking-wide text-muted-foreground">USA project coverage</DropdownMenuLabel>
         <DropdownMenuItem asChild>
           <Link to="/locations" className="font-semibold text-primary">
             View all locations <ArrowRight className="ml-auto" />

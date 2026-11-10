@@ -18,7 +18,7 @@ export const Route = createFileRoute("/blog/$slug")({
         { title: post ? `${post.title} — ${COMPANY}` : "Article not found" },
         { name: "description", content: post?.excerpt ?? "The requested article could not be found." },
         { property: "og:title", content: post?.title ?? "Article not found" },
-        { property: "og:description", content: post?.excerpt ?? "Read permit-drawing notes from Hassan Building Design Group USA." },
+        { property: "og:description", content: post?.excerpt ?? "Read permit-drawing notes from Hassan Building Design Group." },
         { property: "og:type", content: "article" },
         { name: "twitter:card", content: "summary_large_image" },
       ],

@@ -25,7 +25,7 @@ export function SiteFooter() {
           <p className="mt-5 text-sm leading-6 text-primary-foreground/60">
             Architectural Design | Structural Design | Mechanical / HVAC | Electrical | Plumbing | BIM | Permit Drawing Documentation
           </p>
-          <p className="mt-3 text-sm leading-6 text-primary-foreground/60">U.S. Residential & Commercial Design Support</p>
+          <p className="mt-3 text-sm leading-6 text-primary-foreground/60">USA Residential & Commercial Design Support</p>
           <p className="mt-3 text-sm font-medium leading-6">Design & Documentation Only · No Construction or Installation Services</p>
         </div>
         <div>
@@ -66,7 +66,7 @@ export function SiteFooter() {
           <p className="mt-3 max-w-5xl text-xs leading-6 text-primary-foreground/55">{DISCLAIMER}</p>
         </div>
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 text-xs text-primary-foreground/45 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <p>© {new Date().getFullYear()} Hassan Building Design Group USA. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Hassan Building Design Group. All rights reserved.</p>
           <p>{BLOGS.length} notes on permit drawings, coordination, and professional review.</p>
         </div>
       </div>

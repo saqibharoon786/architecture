@@ -1,6 +1,6 @@
 import { Building2, Snowflake, Zap, Droplets, Layers3, Flame, Network } from "lucide-react";
 
-export const COMPANY = "Hassan Building Design Group USA";
+export const COMPANY = "Hassan Building Design Group";
 export const SERVICES = [
   {
     slug: "architectural",
@@ -37,7 +37,7 @@ export const SERVICES = [
     copy: "Structural drafting and documentation support for residential and commercial building projects.",
     items: ["Foundation Plans", "Framing Plans", "Roof Framing Plans", "Beam & Column Layouts", "Structural Details", "Structural Sections", "Connection Details", "General Structural Notes", "Structural Schedules", "Existing & Proposed Structural Plans"],
     noteTitle: "Professional Review & Sealing",
-    note: "Where a project or jurisdiction requires documents to be prepared, reviewed, signed, or sealed by a U.S.-licensed Professional Engineer, we can coordinate the drawing package with the appropriate licensed professional designated for the project. We do not represent an unlicensed individual or entity as a licensed U.S. professional.",
+    note: "Where a project or jurisdiction requires documents to be prepared, reviewed, signed, or sealed by a USA-licensed Professional Engineer, we can coordinate the drawing package with the appropriate licensed professional designated for the project. We do not represent an unlicensed individual or entity as a licensed USA professional.",
   },
   {
     slug: "mepf-permit-sets",
@@ -68,17 +68,17 @@ export const PROCESS = [
   ["Final Documentation", "Organized drawing package delivered according to the agreed scope and intended submission workflow."],
 ];
 export const REASONS = [
-  ["U.S.-Focused Documentation", "We focus on drawing and documentation requirements for U.S. residential and commercial projects."],
+  ["USA-Focused Documentation", "We focus on drawing and documentation requirements for USA residential and commercial projects."],
   ["Multi-Discipline Capability", "Architectural, structural, mechanical, electrical, plumbing, and BIM services under one coordinated workflow."],
   ["Clear & Detailed Drawings", "Our goal is to produce organized drawings that are easy for clients, contractors, and reviewers to understand."],
   ["Flexible Project Support", "From a single drawing or revision to a complete multi-discipline project package."],
   ["Remote Collaboration", "Work with our team remotely from anywhere in the United States."],
   ["Design & Drafting Focus", "Our business focuses on design, drafting, BIM coordination, calculations, and documentation. We do not provide construction or installation services."],
 ];
-export const CLIENTS = ["Architects", "Engineers", "General Contractors", "MEP Contractors", "Construction Companies", "Developers", "Property Owners", "Homeowners", "Design-Build Companies", "Real Estate Professionals"];
+export const CLIENTS = ["Architects", "Engineers", "Structural Engineers", "Professional Engineers", "General Contractors", "MEP Contractors", "Construction Companies", "Developers", "Property Owners", "Homeowners", "Design-Build Companies", "Real Estate Professionals"];
 
 export const DISCLAIMER =
-  "Hassan Building Design Group USA provides design, drafting, BIM, coordination, calculation, and documentation support. We do not provide construction or installation services. Permit requirements and professional licensing requirements vary by jurisdiction and project. Where a licensed architect or Professional Engineer is required, final documents must be reviewed, signed, and/or sealed by the appropriately licensed professional responsible for the project. Hassan Building Design Group USA does not guarantee permit approval, as approval decisions are made by the applicable Authority Having Jurisdiction (AHJ).";
+  "Hassan Building Design Group provides design, drafting, BIM, coordination, calculation, and documentation support. We do not provide construction or installation services. Permit requirements and professional licensing requirements vary by jurisdiction and project. Where a licensed architect or Professional Engineer is required, final documents must be reviewed, signed, and/or sealed by the appropriately licensed professional responsible for the project. Hassan Building Design Group does not guarantee permit approval, as approval decisions are made by the applicable Authority Having Jurisdiction (AHJ).";
 
 export const SERVICE_PAGES: Record<
   string,
@@ -144,7 +144,7 @@ export const SERVICE_PAGES: Record<
   structural: {
     overview: [
       "Structural permit drawings describe how the building stands up: foundations, framing, beams, columns, and the details that connect them. We prepare those sheets for residential and commercial projects so the architectural plans and the structural plans describe the same building.",
-      "Openings, roof framing, and new beams in a remodel are easy places for drawings to drift apart. We keep grids, dimensions, and member marks consistent across the set. Where a project or jurisdiction requires a U.S.-licensed Professional Engineer’s review, signature, or seal, we coordinate the package with the licensed professional designated for the project. We do not represent an unlicensed individual or entity as a licensed U.S. professional.",
+      "Openings, roof framing, and new beams in a remodel are easy places for drawings to drift apart. We keep grids, dimensions, and member marks consistent across the set. Where a project or jurisdiction requires a USA-licensed Professional Engineer’s review, signature, or seal, we coordinate the package with the licensed professional designated for the project. We do not represent an unlicensed individual or entity as a licensed USA professional.",
     ],
     highlights: [
       { title: "Foundations and framing", copy: "Foundation plans, floor framing, and roof framing are drawn as a sequence, not as isolated sketches." },

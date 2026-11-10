@@ -13,7 +13,7 @@ export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: `Blog — ${COMPANY}` },
-      { name: "description", content: "Notes on U.S. permit drawing sets, MEP coordination, and residential addition documentation." },
+      { name: "description", content: "Notes on USA permit drawing sets, MEP coordination, and residential addition documentation." },
       { property: "og:title", content: `Blog — ${COMPANY}` },
       { property: "og:description", content: "Practical writing on permit sets, coordination, and home-addition drawings." },
       { property: "og:type", content: "website" },
@@ -27,7 +27,7 @@ function BlogIndex() {
   return (
     <main className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
       <p className="text-sm font-semibold uppercase text-primary">Blog</p>
-      <h1 className="mt-4 max-w-3xl text-4xl font-bold sm:text-5xl">Notes on U.S. drawing requirements.</h1>
+      <h1 className="mt-4 max-w-3xl text-4xl font-bold sm:text-5xl">Notes on USA drawing requirements.</h1>
       <p className="mt-6 max-w-2xl text-base leading-8 text-muted-foreground">
         Practical writing for contractors, architects, engineers, and owners on permit documentation, MEP coordination, load calculations, ADUs, and when a professional seal is required.
       </p>
